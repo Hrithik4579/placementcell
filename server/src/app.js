@@ -1,12 +1,25 @@
-import express from "express";
-const app = express();
+import express from "express"
+import cors from "cors"
+import cookieParser from "cookie-parser"
 
-app.get("/", function (req, res) {
-  res.send("Hello World!");
-});
+const app = express()
 
-app.listen(process.env.PORT, function () {
-  console.log(`Example app listening on port ${process.env.PORT}!`);
-});
+app.use(cors({
+    origin: process.env.CORS_ORIGIN,
+    credentials: true
+}))
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}))
+app.use(express.static("public"))
+app.use(cookieParser())
+
+
+//routes import
+import studentLogin from './routes/studentLogin.route.js'
+
+//routes declaration
+app.use("/api/studentlogin", studentLogin)
+
 
 export { app }
