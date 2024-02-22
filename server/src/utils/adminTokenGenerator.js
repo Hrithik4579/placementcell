@@ -1,9 +1,9 @@
 import { ApiError } from "./ApiError"
-import {Student} from "../models/student.model.js"
+import {Admin} from "../models/admin.model.js"
 
-const generateAccessAndRefreshTokens = async(enrollmentNumber) =>{
+const generateAccessAndRefreshTokens = async(userId) =>{
     try {
-        const user = await Student.findById(enrollmentNumber)
+        const user = await Student.findById(userId)
         const accessToken = user.generateAccessToken()
         const refreshToken = user.generateRefreshToken()
 

@@ -1,20 +1,20 @@
 import mongoose from "mongoose"
-import {Student} from "../models/student.model.js"
+import {Admin} from "../models/admin.model.js"
 import {ApiError} from "../utils/ApiError.js"
 import {ApiResponse} from "../utils/ApiResponse.js"
 import {asyncHandler} from "../utils/asyncHandler.js"
-import generateAccessAndRefreshTokens from "../utils/tokenGenerator.js"
+import generateAccessAndRefreshTokens from "../utils/adminTokenGenerator.js"
 
-export const studentLogin = asyncHandler(async (req, res, next) => {
-    const {enrollmentNumber, password} = req.body
-    console.log(enrollmentNumber);
-    const student = await Student.findOne({enrollmentNumber})
+export const adminLogin = asyncHandler(async (req, res, next) => {
+    const {userId, password} = req.body
+    console.log(userId);
+    const admin = await Admin.findOne({userId})
     
-    if(!student){
-        return next(new ApiError(404, "Student not found"))
+    if(!admin){
+        return next(new ApiError(404, "Admin not found"))
     }
 
-    const isPasswordValid = await student.isPasswordCorrect(password)
+    const isPasswordValid = await admin.isPasswordCorrect(password)
 
     if (!isPasswordValid) {
         throw new ApiError(401, "Invalid user credentials")
@@ -44,4 +44,4 @@ export const studentLogin = asyncHandler(async (req, res, next) => {
     )
 })
 
-export { studentLogin }
+export { adminLogin }
