@@ -16,11 +16,12 @@ app.use(cookieParser())
 
 
 //routes import
-import studentLogin from './routes/studentLogin.route.js'
+import student from './routes/student.route.js'
 import adminLogin from "./routes/adminLogin.route.js"
 
 //routes declaration
-app.use("/api/studentlogin", studentLogin)
+
+app.use("/api/students", student)
 app.use("/api/adminlogin", adminLogin)
 
 

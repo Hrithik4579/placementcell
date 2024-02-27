@@ -7,6 +7,6 @@ import { verifyJWT } from "../middlewares/adminAuth.middleware.js";
 
 const router = Router()
 
-router.route("/studentlogin").post(adminLogin)
+router.route("/adminlogin").post(adminLogin)
 
 export default router

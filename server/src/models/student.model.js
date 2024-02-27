@@ -1,4 +1,5 @@
 import mongoose, { Schema } from "mongoose";
+import bcrypt from "bcryptjs";
 
 const studentSchema = new Schema(
     {
@@ -46,7 +47,8 @@ const studentSchema = new Schema(
 )
 
 studentSchema.methods.isPasswordCorrect = async function(password){
-    return await bcrypt.compare(password, this.password)
+    // return await bcrypt.compare(password, this.password)
+    return password === this.password
 }
 
 studentSchema.methods.generateAccessToken = function(){
