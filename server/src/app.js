@@ -22,7 +22,7 @@ import adminLogin from "./routes/adminLogin.route.js"
 //routes declaration
 
 app.use("/api/students", student)
-app.use("/api/adminlogin", adminLogin)
+app.use("/api/admin", adminLogin)
 
 
 export { app }
