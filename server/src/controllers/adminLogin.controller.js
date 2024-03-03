@@ -35,9 +35,9 @@ export const adminLogin = asyncHandler(async (req, res, next) => {
         throw new ApiError(401, "Invalid user credentials")
     }
 
-    const {accessToken, refreshToken} = await generateAccessAndRefreshTokens(user._id)
+    const {accessToken, refreshToken} = await generateAccessAndRefreshTokens(admin._id)
 
-    const loggedInUser = await User.findById(user._id).select("-password -refreshToken")
+    const loggedInUser = await User.findById(admin._id).select("-password -refreshToken")
 
     const options = {
         httpOnly: true,
@@ -54,7 +54,7 @@ export const adminLogin = asyncHandler(async (req, res, next) => {
             {
                 user: loggedInUser, accessToken, refreshToken
             },
-            "User logged In Successfully"
+            "Admin logged In Successfully"
         )
     )
 })

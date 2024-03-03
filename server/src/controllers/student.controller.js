@@ -4,11 +4,11 @@ import {ApiError} from "../utils/ApiError.js"
 import {ApiResponse} from "../utils/ApiResponse.js"
 import {asyncHandler} from "../utils/asyncHandler.js"
 
-const generateAccessAndRefreshTokens = async(enrollmentNumber) =>{
+const generateAccessAndRefreshTokens = async(id) =>{
     try {
-        const user = await Student.findById(enrollmentNumber)
-        const accessToken = user.generateAccessToken()
-        const refreshToken = user.generateRefreshToken()
+        const user = await Student.findById(id);
+        const accessToken = user.generateAccessToken();
+        const refreshToken = user.generateRefreshToken();
 
         user.refreshToken = refreshToken
         await user.save({ validateBeforeSave: false })
@@ -35,9 +35,9 @@ const studentLogin = asyncHandler(async (req, res, next) => {
         throw new ApiError(401, "Invalid user credentials")
     }
 
-    const {accessToken, refreshToken} = await generateAccessAndRefreshTokens(Student._id)
+    const {accessToken, refreshToken} = await generateAccessAndRefreshTokens(student._id)
 
-    const loggedInUser = await User.findById(user._id).select("-password -refreshToken")
+    const loggedInUser = await Student.findById(student._id).select("-password -refreshToken")
 
     const options = {
         httpOnly: true,

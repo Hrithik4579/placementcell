@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken"
 
 const studentSchema = new Schema(
     {
@@ -59,6 +60,7 @@ studentSchema.methods.generateAccessToken = function(){
             fullName: this.fullName
         },
         process.env.ACCESS_TOKEN_SECRET,
+        // "thisisasecretkeyforaccessingtheapplication",
         {
             expiresIn: process.env.ACCESS_TOKEN_EXPIRY
         }
