@@ -17,6 +17,18 @@ const createJob = asyncHandler(async (req, res) => {
         registerBy
     } = req.body
 
+    if (
+        [jobId, companyName, location, type].some((field) => field?.trim() === "")
+    ) {
+        throw new ApiError(400, "Required fields cannot be empty")
+    }
+
+    const existedUser = await Job.findOne({ jobId })
+
+    if (existedUser) {
+        throw new ApiError(409, "User with email or username already exists")
+    }
+
     const job = await Job.create({
         jobId,
         companyName,
