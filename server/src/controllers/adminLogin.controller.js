@@ -16,7 +16,7 @@ const generateAccessAndRefreshTokens = async(userId) =>{
         return {accessToken, refreshToken};
 
     } catch (error) {
-        throw new ApiError(500, "Something went wrong while generating referesh and access token")
+        throw new ApiError(500, error)
     }
 }
 
@@ -37,7 +37,7 @@ export const adminLogin = asyncHandler(async (req, res, next) => {
 
     const {accessToken, refreshToken} = await generateAccessAndRefreshTokens(admin._id)
 
-    const loggedInUser = await User.findById(admin._id).select("-password -refreshToken")
+    const loggedInUser = await Admin.findById(admin._id).select("-password -refreshToken")
 
     const options = {
         httpOnly: true,

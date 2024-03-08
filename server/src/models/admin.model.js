@@ -1,4 +1,5 @@
 import mongoose, { Schema } from "mongoose";
+import jwt from "jsonwebtoken";
 
 const adminSchema = new Schema(
     {
@@ -33,14 +34,15 @@ const adminSchema = new Schema(
 )
 
 adminSchema.methods.isPasswordCorrect = async function(password){
-    return await bcrypt.compare(password, this.password)
+    // return await bcrypt.compare(password, this.password)
+    return password === this.password
 }
 
 adminSchema.methods.generateAccessToken = function(){
     return jwt.sign(
         {
             _id: this._id,
-            userId: this.enrollmentNumber,
+            userId: this.userId,
             fullName: this.fullName
         },
         process.env.ACCESS_TOKEN_SECRET,

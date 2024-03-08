@@ -21,7 +21,7 @@ const jobSchema = new Schema(
             trim: true,
         },
         batch: {
-            type: number
+            type: Number
         },
         type: {
             type: String,
@@ -30,7 +30,7 @@ const jobSchema = new Schema(
             enum: ['Intern', 'Full-Time', 'intern', 'full-time']
         },
         salary: {
-            type: number,
+            type: Number,
         },      
         cgpa: {
             type: Number,

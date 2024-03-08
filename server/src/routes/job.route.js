@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { createJob, deleteJob, makeJobInactive } from "../controllers/job.controller.js";
-import { verifyJWT } from "../middlewares/adminAuth.middleware";
+import { verifyJWT } from "../middlewares/adminAuth.middleware.js";
 
 const router = Router()
 
