@@ -17,13 +17,13 @@ app.use(cookieParser())
 
 //routes import
 import student from './routes/student.route.js'
-import adminLogin from "./routes/adminLogin.route.js"
-
+import adminLogin from './routes/adminLogin.route.js'
+import job from './routes/job.route.js'
 
 //routes declaration
 
 app.use("/api/students", student)
 app.use("/api/admin", adminLogin)
-
+app.use("/api/jobs", job)
 
 export { app }
