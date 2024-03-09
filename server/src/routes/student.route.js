@@ -2,8 +2,6 @@ import { Router } from "express";
 import { 
     studentLogin, studentRegister
 } from "../controllers/student.controller.js";
-import { verifyJWT } from "../middlewares/studentAuth.middleware.js";
-
 
 const router = Router()
 

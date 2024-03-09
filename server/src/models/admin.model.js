@@ -45,7 +45,7 @@ adminSchema.methods.generateAccessToken = function(){
             userId: this.userId,
             fullName: this.fullName
         },
-        process.env.ACCESS_TOKEN_SECRET,
+        process.env.ADMIN_ACCESS_TOKEN_SECRET,
         {
             expiresIn: process.env.ACCESS_TOKEN_EXPIRY
         }

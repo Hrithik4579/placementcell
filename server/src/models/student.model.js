@@ -59,7 +59,7 @@ studentSchema.methods.generateAccessToken = function(){
             enrollmentNumber: this.enrollmentNumber,
             fullName: this.fullName
         },
-        process.env.ADMIN_ACCESS_TOKEN_SECRET,
+        process.env.ACCESS_TOKEN_SECRET,
         // "thisisasecretkeyforaccessingtheapplication",
         {
             expiresIn: process.env.ACCESS_TOKEN_EXPIRY

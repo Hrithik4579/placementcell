@@ -26,7 +26,7 @@ const createJob = asyncHandler(async (req, res) => {
     const existedUser = await Job.findOne({ jobId })
 
     if (existedUser) {
-        throw new ApiError(409, "User with email or username already exists")
+        throw new ApiError(409, "Job with jobId already exists")
     }
 
     const job = await Job.create({
@@ -83,4 +83,17 @@ const makeJobInactive = asyncHandler(async (req, res) => {
     }
 })
 
-export {createJob, deleteJob, makeJobInactive}
+const fetchAllJobs = asyncHandler(async (req, res) => {
+    const jobs = await Job.find({active: true})
+
+    try {
+        return res
+        .status(200)
+        .json(new ApiResponse(200, jobs, "Jobs fetched successfully"))
+    } catch (error) {
+        throw new ApiError(500, "Something went wrong while fetching jobs")
+    }
+
+})
+
+export { createJob, deleteJob, makeJobInactive, fetchAllJobs }
