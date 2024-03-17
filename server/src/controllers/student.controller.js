@@ -1,10 +1,11 @@
 import mongoose from "mongoose"
-import {Student} from "../models/student.model.js"
-import {ApiError} from "../utils/ApiError.js"
-import {ApiResponse} from "../utils/ApiResponse.js"
-import {asyncHandler} from "../utils/asyncHandler.js"
+import { Student } from "../models/student.model.js"
+import { Application } from "../models/application.model.js"
+import { ApiError } from "../utils/ApiError.js"
+import { ApiResponse } from "../utils/ApiResponse.js"
+import { asyncHandler } from "../utils/asyncHandler.js"
 
-const generateAccessAndRefreshTokens = async(id) =>{
+const generateAccessAndRefreshTokens = async (id) => {
     try {
         const user = await Student.findById(id);
         const accessToken = user.generateAccessToken();
@@ -13,19 +14,20 @@ const generateAccessAndRefreshTokens = async(id) =>{
         user.refreshToken = refreshToken
         await user.save({ validateBeforeSave: false })
 
-        return {accessToken, refreshToken};
+        return { accessToken, refreshToken };
 
     } catch (error) {
         throw new ApiError(500, "Something went wrong while generating refresh and access token")
     }
 }
 
+
 const studentLogin = asyncHandler(async (req, res, next) => {
-    const {enrollmentNumber, password} = req.body
+    const { enrollmentNumber, password } = req.body
     console.log(enrollmentNumber);
-    const student = await Student.findOne({enrollmentNumber})
-    
-    if(!student){
+    const student = await Student.findOne({ enrollmentNumber })
+
+    if (!student) {
         return next(new ApiError(404, "Student not found"))
     }
 
@@ -35,7 +37,7 @@ const studentLogin = asyncHandler(async (req, res, next) => {
         throw new ApiError(401, "Invalid user credentials")
     }
 
-    const {accessToken, refreshToken} = await generateAccessAndRefreshTokens(student._id)
+    const { accessToken, refreshToken } = await generateAccessAndRefreshTokens(student._id)
 
     const loggedInUser = await Student.findById(student._id).select("-password -refreshToken")
 
@@ -45,22 +47,22 @@ const studentLogin = asyncHandler(async (req, res, next) => {
     }
 
     return res
-    .status(200)
-    .cookie("accessToken", accessToken, options)
-    .cookie("refreshToken", refreshToken, options)
-    .json(
-        new ApiResponse(
-            200, 
-            {
-                user: loggedInUser, accessToken, refreshToken
-            },
-            "User logged In Successfully"
+        .status(200)
+        .cookie("accessToken", accessToken, options)
+        .cookie("refreshToken", refreshToken, options)
+        .json(
+            new ApiResponse(
+                200,
+                {
+                    user: loggedInUser, accessToken, refreshToken
+                },
+                "User logged In Successfully"
+            )
         )
-    )
 })
 
-const studentRegister = asyncHandler( async (req, res) => {
-  
+const studentRegister = asyncHandler(async (req, res) => {
+
     const { fullName, email, enrollmentNumber, password, branch, graduationYear, cgpa } = req.body
     //console.log("email: ", email);
 
@@ -80,12 +82,12 @@ const studentRegister = asyncHandler( async (req, res) => {
     //console.log(req.files);  
 
     const student = await Student.create({
-        fullName, 
-        email, 
-        enrollmentNumber, 
-        password, 
-        branch, 
-        graduationYear, 
+        fullName,
+        email,
+        enrollmentNumber,
+        password,
+        branch,
+        graduationYear,
         cgpa
     })
 
@@ -101,7 +103,59 @@ const studentRegister = asyncHandler( async (req, res) => {
         new ApiResponse(200, createdUser, "User registered Successfully")
     )
 
-} )
-    
+})
 
-export { studentLogin, studentRegister }
+const applyForJob = asyncHandler(async (req, res) => {
+    const {
+        jobId,
+        batch,
+        cgpa: requiredCgpa,
+        branches,
+        registerBy,
+        active
+    } = req.body
+    const { _id, cgpa: studentCgpa, graduationYear, branch } = req.user;
+    const student = await Student.findById(_id);
+
+    if (!student) {
+        throw new ApiError(404, "Student not found");
+    }
+
+    if (!active) {
+        throw new ApiError(400, "Job is not active");
+    }
+
+    if (Date.now() > new Date(registerBy)) {
+        throw new ApiError(400, "Registration date has been passed");
+    }
+
+    let appliedBefore = false;
+    for (let i of student.applications) {
+        if (i.job == jobId) {
+            appliedBefore = true;
+            break;
+        }
+    }
+
+    if (appliedBefore) {
+        throw new ApiError(409, "You have already applied for this job");
+    }
+
+    if (graduationYear != batch || studentCgpa < requiredCgpa) {
+        throw new ApiError(400, "You are not eligible for this job");
+    }
+
+    if (!branches.includes(branch)) {
+        throw new ApiError(400, "Your branch is not eligible for this job");
+    }
+
+    // TODO: PROCESS FORM DATA AND ADD TO JOB APPLICATION
+
+    // TODO: Get resume from student and save to server
+
+
+
+})
+
+
+export { studentLogin, studentRegister, applyForJob }
