@@ -52,9 +52,9 @@ const createJob = asyncHandler(async (req, res) => {
 })
 
 const deleteJob = asyncHandler(async (req, res, next) => {
-    const jobId = req.params.jobId
+    const jobId = req.params.id
 
-    const job = await Job.findOneAndDelete({jobId})
+    const job = await Job.findOneAndDelete(jobId)
 
     if(!job){
         throw new ApiError(404, "Job not found")
@@ -70,7 +70,7 @@ const deleteJob = asyncHandler(async (req, res, next) => {
 })
 
 const makeJobInactive = asyncHandler(async (req, res) => {
-    const jobId = req.params.jobId
+    const jobId = req.params.id
 
     const job = await Job.findByIdAndUpdate(jobId, {active: false}, {new: true})
 
@@ -96,4 +96,17 @@ const fetchAllJobs = asyncHandler(async (req, res) => {
 
 })
 
-export { createJob, deleteJob, makeJobInactive, fetchAllJobs }
+const inActiveJobs = asyncHandler(async (req, res) => {
+    const jobs = await Job.find({active: false})
+
+    try {
+        return res
+        .status(200)
+        .json(new ApiResponse(200, jobs, "Inactive Jobs fetched successfully"))
+    } catch (error) {
+        throw new ApiError(500, "Something went wrong while fetching inactive jobs")
+    }
+
+})
+
+export { createJob, deleteJob, makeJobInactive, fetchAllJobs, inActiveJobs }

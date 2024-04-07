@@ -18,7 +18,7 @@ let resumeStorage = multer.diskStorage({
 });
 
 // Upload
-module.exports = multer({
+export const upload = multer({
     storage: resumeStorage,
     limits : { fileSize : 100000000000000 }
-}).single('resume');
+});
