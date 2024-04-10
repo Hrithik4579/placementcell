@@ -2,30 +2,30 @@ import React, { useState } from "react";
 import './login.css';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-// import {useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 const Login = (props) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  // let navigate = useNavigate();
+  let navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:8000/api/admin/adminlogin", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email: credentials.email, password: credentials.password }),
-    })
-    const json = await response.json();
-    console.log(json);
-    if (json.success) {
-      // localStorage.setItem('token', JSON.stringify(json.authToken));
-      props.showAlert("Logged in Successfully", "success")
-      // navigate('/');
+    // const response = await fetch("http://localhost:8000/api/admin/adminlogin", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({ email: credentials.email, password: credentials.password }),
+    // })
+    // const json = await response.json();
+    // console.log(json);
+    // if (json.success) {
+    //   // localStorage.setItem('token', JSON.stringify(json.authToken));
+    //   props.showAlert("Logged in Successfully", "success")
+      navigate('/home');
 
-    }
-    else {
-      props.showAlert("Invalid Credentials", "danger");
-    }
+    // }
+    // else {
+    //   props.showAlert("Invalid Credentials", "danger");
+    // }
   }
   const handleChange = (e) => {
     e.preventDefault();
@@ -35,7 +35,7 @@ const Login = (props) => {
   return (
     <div className="main">
       <header>JIIT Placement Portal</header>
-      <div className="container">
+      <div className="container1">
         <h2 className="my-3"><u>Admin Login</u></h2>
 
         <form onClick={handleSubmit}>

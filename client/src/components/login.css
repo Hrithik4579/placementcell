@@ -1,4 +1,4 @@
-.container{
+.container1{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,7 +9,7 @@
 }
 body{
     height: 100vh;
-    background-image: url("C:\Users\HP\Desktop\bnner-immg-2.jpg");
+    background-image: url("C:\Users\HP\Desktop\p\placementcell\client\bnner-immg-2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -29,4 +29,27 @@ header{
     background: transparent;
     border: none;
     outline: none;
+}
+h2{
+    margin-top: 15px;
+}
+.nav{
+    margin-top: 10px;
+}
+.form-control{
+    width:350px;
+}
+.mb-3{
+    display: inline-block;
+    margin-right: 100px;
+}
+.nav-item{
+    margin-right: 10px;
+}
+.card{
+    background-color: paleturquoise;
+    margin-top: 10px;
+}
+.card-header{
+    background-color: paleturquoise;
 }
