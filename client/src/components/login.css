@@ -9,7 +9,7 @@
 }
 body{
     height: 100vh;
-    background-image: url("C:\Users\HP\Desktop\p\placementcell\client\bnner-immg-2.jpg");
+    background-image: url("../../bnner-immg-2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
