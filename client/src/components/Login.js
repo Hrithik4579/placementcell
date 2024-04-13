@@ -2,30 +2,39 @@ import React, { useState } from "react";
 import './login.css';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const Login = (props) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   let navigate = useNavigate();
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e, data) => {
     e.preventDefault();
-    // const response = await fetch("http://localhost:8000/api/admin/adminlogin", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ email: credentials.email, password: credentials.password }),
-    // })
-    // const json = await response.json();
-    // console.log(json);
-    // if (json.success) {
-    //   // localStorage.setItem('token', JSON.stringify(json.authToken));
-    //   props.showAlert("Logged in Successfully", "success")
+    data = { userId: credentials.email, password: credentials.password };
+
+    const response = await fetch("http://localhost:8000/api/admin/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const json = await response.json();
+    console.log(json);
+    if (json.success) {
+      // localStorage.setItem('token', JSON.stringify(json.authToken));
+      // props.showAlert("Logged in Successfully", "success")
+      const { accessToken, refreshToken } = json.data;
+
+      // Set cookies in document.cookie
+      document.cookie = `accessToken=${accessToken}; path=/;`;
+      document.cookie = `refreshToken=${refreshToken}; path=/;`;
+      console.log("Logged in Successfully");
       navigate('/home');
 
-    // }
-    // else {
-    //   props.showAlert("Invalid Credentials", "danger");
-    // }
+    }
+    else {
+      props.showAlert("Invalid Credentials", "danger");
+      console.log("Invalid Credentials");
+    }
   }
   const handleChange = (e) => {
     e.preventDefault();
@@ -38,12 +47,12 @@ const Login = (props) => {
       <div className="container1">
         <h2 className="my-3"><u>Admin Login</u></h2>
 
-        <form onClick={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="form-group mb-3 my-4">
             <label htmlFor="email">Email:</label>
             <div className="inpbox">
               <input
-                type="email"
+                type="text"
                 className="form-control"
                 id="email"
                 name="email"
@@ -68,7 +77,7 @@ const Login = (props) => {
               />
             </div>
           </div>
-          <button type="submit" className="btn btn-primary my-3">
+          <button type="submit" className="btn btn-primary my-3" >
             Submit
           </button>
           <div>

@@ -11,31 +11,31 @@ export default function Addstudent() {
         </div>
       <form className="admin_form">
   <div className="mb-3">
-    <label for="exampleInputEmail1" className="form-label">Student Name</label>
+    <label htmlFor="exampleInputEmail1" className="form-label">Student Name</label>
     <input type="text" className="form-control" id="name1"/>
   </div>
   <div className='mb-3'>
-    <label for='enrol' className='form-label'>Enrollment Number:</label>
+    <label htmlFor='enrol' className='form-label'>Enrollment Number:</label>
     <input type='number' className='form-control'/>
   </div>
   <div className='mb-3'>
-    <label for='email' className='form-label'>Email:</label>
+    <label htmlFor='email' className='form-label'>Email:</label>
     <input type='email' className='form-control'/>
   </div>
   <div className='mb-3'>
-    <label for='branch' className='form-label'>Branch:</label>
+    <label htmlFor='branch' className='form-label'>Branch:</label>
     <input type='text' className='form-control'/>
   </div>
   <div className='mb-3'>
-    <label for='gradyear' className='form-label'>Graduation Year:</label>
+    <label htmlFor='gradyear' className='form-label'>Graduation Year:</label>
     <input type='number' className='form-control'/>
   </div>
   <div className='mb-3'>
-    <label for='cgpa' className='form-label'>CGPA:</label>
+    <label htmlFor='cgpa' className='form-label'>CGPA:</label>
     <input type='number' className='form-control'/>
   </div>
   <div className="mb-3">
-    <label for="exampleInputPassword1" className="form-label">Password</label>
+    <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
     <input type="password" className="form-control" id="exampleInputPassword1"/>
   </div>
   

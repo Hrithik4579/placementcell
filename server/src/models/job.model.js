@@ -2,13 +2,13 @@ import mongoose, { Schema } from "mongoose";
 
 const jobSchema = new Schema(
     {
-        jobId: {
-            type: String,
-            required: true,
-            unique: true,
-            trim: true,
-            index: true
-        },
+        // jobId: {
+        //     type: String,
+        //     required: true,
+        //     unique: true,
+        //     trim: true,
+        //     index: true
+        // },
         companyName: {
             type: String,
             required: true,

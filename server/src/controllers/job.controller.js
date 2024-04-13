@@ -4,8 +4,7 @@ import {ApiResponse} from "../utils/ApiResponse.js"
 import {asyncHandler} from "../utils/asyncHandler.js"
 
 const createJob = asyncHandler(async (req, res) => {
-    const {
-        jobId,
+    let {
         companyName,
         location,
         batch,
@@ -17,20 +16,23 @@ const createJob = asyncHandler(async (req, res) => {
         registerBy
     } = req.body
 
+    console.log(req.body);
     if (
-        [jobId, companyName, location, type].some((field) => field?.trim() === "")
+        [companyName, location, type].some((field) => field?.trim() === "")
     ) {
         throw new ApiError(400, "Required fields cannot be empty")
     }
 
-    const existedUser = await Job.findOne({ jobId })
+    // const existedUser = await Job.findOne({ jobId })
 
-    if (existedUser) {
-        throw new ApiError(409, "Job with jobId already exists")
-    }
+    // if (existedUser) {
+    //     throw new ApiError(409, "Job with jobId already exists")
+    // }
+
+    branches = branches.split(" ");
 
     const job = await Job.create({
-        jobId,
+        // jobId,
         companyName,
         location,
         batch,

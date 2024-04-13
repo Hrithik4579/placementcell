@@ -44,10 +44,11 @@ export const adminLogin = asyncHandler(async (req, res, next) => {
         secure: true
     }
 
+    res.cookie("accessToken", accessToken, options);
+    res.cookie("refreshToken", refreshToken, options);
+
     return res
     .status(200)
-    .cookie("accessToken", accessToken, options)
-    .cookie("refreshToken", refreshToken, options)
     .json(
         new ApiResponse(
             200, 
