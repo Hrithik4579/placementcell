@@ -9,9 +9,9 @@ const router = Router()
 
 router.route("/login").post(adminLogin)
 router.post("/job", verifyAdminJWT, createJob)
+router.get("/job", verifyAdminJWT, fetchAllJobs)
 router.delete("/job/:id", verifyAdminJWT, deleteJob)
 router.put("/job/:id", verifyAdminJWT, makeJobInactive)
-router.get("/job", verifyAdminJWT, fetchAllJobs)
 router.get("/job/inactive", verifyAdminJWT, inActiveJobs)
 
 
