@@ -6,10 +6,10 @@ export default function Companyitem(props) {
     <div className='company_card'>
       <div className="card">
   <div className="card-header">
-    {props.cname}
+    {props.post}
   </div>
   <div className="card-body">
-    <h5 className="card-title">{props.post}</h5>
+    <h5 className="card-title">{props.cname}</h5>
     <p className="card-text">{props.ctc}</p>
     <Link to="#" className="btn btn-primary">View Opportunity</Link>
   </div>
