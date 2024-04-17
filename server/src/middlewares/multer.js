@@ -3,7 +3,7 @@ import multer from 'multer';
 // Resume Storage on Disk
 let resumeStorage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, __basedir + '/public/temp/')
+        cb(null, 'public/temp/')
     },
     filename: function (req, file, cb) {
 
@@ -18,7 +18,9 @@ let resumeStorage = multer.diskStorage({
 });
 
 // Upload
-export const upload = multer({
+const upload = multer({
     storage: resumeStorage,
     limits : { fileSize : 100000000000000 }
 });
+
+export { upload }

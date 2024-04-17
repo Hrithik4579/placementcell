@@ -107,7 +107,6 @@ const studentRegister = asyncHandler(async (req, res) => {
 
 const applyForJob = asyncHandler(async (req, res) => {
     const {
-        jobId,
         batch,
         cgpa: requiredCgpa,
         branches,
@@ -152,6 +151,7 @@ const applyForJob = asyncHandler(async (req, res) => {
     // TODO: PROCESS FORM DATA AND ADD TO JOB APPLICATION
 
     // TODO: Get resume from student and save to server
+    
 
 
 
