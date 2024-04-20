@@ -11,8 +11,6 @@ const router = Router()
 router.post("/login", studentLogin)
 router.post("/register", studentRegister)
 router.get("/job", verifyStudentJWT, fetchAllJobs)
-// router.post("/job", verifyStudentJWT,upload.single("resume"), applyForJob)
-// router.patch("/uploadresume", verifyStudentJWT, uploadResume)
 
 
 export default router
