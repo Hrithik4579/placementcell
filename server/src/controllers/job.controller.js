@@ -85,6 +85,24 @@ const makeJobInactive = asyncHandler(async (req, res) => {
     }
 })
 
+const fetchJob = asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const job = await Job.find({_id: id});
+
+    if (!job){
+        throw new ApiError(404, "Job Not Found");
+    }
+
+    try {
+        return res
+        .status(200)
+        .json(new ApiResponse(200, job, "Job fetched successfully"))
+    } catch (error) {
+        throw new ApiError(500, "Something went wrong while fetching jobs")
+    }
+
+})
+
 const fetchAllJobs = asyncHandler(async (req, res) => {
     const jobs = await Job.find({active: true})
 
@@ -111,4 +129,4 @@ const inActiveJobs = asyncHandler(async (req, res) => {
 
 })
 
-export { createJob, deleteJob, makeJobInactive, fetchAllJobs, inActiveJobs }
+export { createJob, deleteJob, makeJobInactive, fetchJob, fetchAllJobs, inActiveJobs }

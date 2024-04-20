@@ -3,7 +3,7 @@ import {
     studentLogin, studentRegister
 } from "../controllers/student.controller.js";
 import { verifyStudentJWT } from "../middlewares/studentAuth.middleware.js"
-import { fetchAllJobs } from "../controllers/job.controller.js"
+import { fetchJob ,fetchAllJobs } from "../controllers/job.controller.js"
 
 
 const router = Router()
@@ -11,6 +11,7 @@ const router = Router()
 router.post("/login", studentLogin)
 router.post("/register", studentRegister)
 router.get("/job", verifyStudentJWT, fetchAllJobs)
+router.get("/job/:id", verifyStudentJWT, fetchJob)
 
 
 export default router
