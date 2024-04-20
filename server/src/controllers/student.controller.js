@@ -1,6 +1,5 @@
 import mongoose from "mongoose"
 import { Student } from "../models/student.model.js"
-import { Application } from "../models/application.model.js"
 import { ApiError } from "../utils/ApiError.js"
 import { ApiResponse } from "../utils/ApiResponse.js"
 import { asyncHandler } from "../utils/asyncHandler.js"
@@ -105,57 +104,5 @@ const studentRegister = asyncHandler(async (req, res) => {
 
 })
 
-const applyForJob = asyncHandler(async (req, res) => {
-    const {
-        batch,
-        cgpa: requiredCgpa,
-        branches,
-        registerBy,
-        active
-    } = req.body
-    const { _id, cgpa: studentCgpa, graduationYear, branch } = req.user;
-    const student = await Student.findById(_id);
 
-    if (!student) {
-        throw new ApiError(404, "Student not found");
-    }
-
-    if (!active) {
-        throw new ApiError(400, "Job is not active");
-    }
-
-    if (Date.now() > new Date(registerBy)) {
-        throw new ApiError(400, "Registration date has been passed");
-    }
-
-    let appliedBefore = false;
-    for (let i of student.applications) {
-        if (i.job == jobId) {
-            appliedBefore = true;
-            break;
-        }
-    }
-
-    if (appliedBefore) {
-        throw new ApiError(409, "You have already applied for this job");
-    }
-
-    if (graduationYear != batch || studentCgpa < requiredCgpa) {
-        throw new ApiError(400, "You are not eligible for this job");
-    }
-
-    if (!branches.includes(branch)) {
-        throw new ApiError(400, "Your branch is not eligible for this job");
-    }
-
-    // TODO: PROCESS FORM DATA AND ADD TO JOB APPLICATION
-
-    // TODO: Get resume from student and save to server
-    
-
-
-
-})
-
-
-export { studentLogin, studentRegister, applyForJob }
+export { studentLogin, studentRegister }

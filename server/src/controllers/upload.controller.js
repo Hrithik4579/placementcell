@@ -1,4 +1,3 @@
-import {Student} from '../models/student.model.js';
 import { asyncHandler } from '../utils/asyncHandler.js';
 import { uploadOnCloudinary } from '../utils/cloudinary.js';
 

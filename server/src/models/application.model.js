@@ -14,6 +14,10 @@ const applicationSchema = new Schema(
             type: String,
             enum: ["applied", "shortlisted", "rejected"],
             default: "applied"
+        },
+        resume: {
+            type: String,
+            required: true
         }
     },
     {

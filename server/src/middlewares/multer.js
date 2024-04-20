@@ -20,7 +20,7 @@ let resumeStorage = multer.diskStorage({
 // Upload
 const upload = multer({
     storage: resumeStorage,
-    limits : { fileSize : 100000000000000 }
+    limits : { fileSize : 10000000 }
 });
 
 export { upload }
