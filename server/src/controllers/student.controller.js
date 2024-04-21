@@ -1,5 +1,6 @@
 import mongoose from "mongoose"
 import { Student } from "../models/student.model.js"
+import { Application } from "../models/application.model.js"
 import { ApiError } from "../utils/ApiError.js"
 import { ApiResponse } from "../utils/ApiResponse.js"
 import { asyncHandler } from "../utils/asyncHandler.js"
@@ -104,5 +105,13 @@ const studentRegister = asyncHandler(async (req, res) => {
 
 })
 
+const getApplications = asyncHandler(async (req, res, next) => {
+    const studentId = req.student.id;
+    const applications = await Application.find({student: studentId});
 
-export { studentLogin, studentRegister }
+    return res
+        .status(200)
+        .json(new ApiResponse(200, applications, "Applications fetched successfully"))
+})
+
+export { studentLogin, studentRegister, getApplications }

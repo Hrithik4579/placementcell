@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { 
-    studentLogin, studentRegister
+    studentLogin, studentRegister, getApplications
 } from "../controllers/student.controller.js";
 import { verifyStudentJWT } from "../middlewares/studentAuth.middleware.js"
 import { fetchJob ,fetchAllJobs } from "../controllers/job.controller.js"
@@ -12,6 +12,7 @@ router.post("/login", studentLogin)
 router.post("/register", studentRegister)
 router.get("/job", verifyStudentJWT, fetchAllJobs)
 router.get("/job/:id", verifyStudentJWT, fetchJob)
+router.get("/applications", verifyStudentJWT, getApplications)
 
 
 export default router
