@@ -3,7 +3,7 @@ import {
     adminLogin
 } from "../controllers/adminLogin.controller.js";
 import { verifyAdminJWT } from "../middlewares/adminAuth.middleware.js";
-import { createJob, deleteJob, makeJobInactive, fetchJob, fetchAllJobs, inActiveJobs } from "../controllers/job.controller.js";
+import { createJob, deleteJob, makeJobInactive, fetchJob, fetchAllJobs, inActiveJobs, generateReport } from "../controllers/job.controller.js";
 
 const router = Router()
 
@@ -14,6 +14,7 @@ router.get("/job/:id", verifyAdminJWT, fetchJob)
 router.delete("/job/:id", verifyAdminJWT, deleteJob)
 router.put("/job/:id", verifyAdminJWT, makeJobInactive)
 router.get("/job/inactive", verifyAdminJWT, inActiveJobs)
+router.get("/job/report/:id", verifyAdminJWT, generateReport)
 
 
 export default router

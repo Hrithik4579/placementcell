@@ -49,7 +49,7 @@ const jobSchema = new Schema(
         active: {
             type: Boolean,
             default: true
-        }
+        },
     },
     {
         timestamps: true
