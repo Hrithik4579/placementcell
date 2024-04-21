@@ -53,3 +53,8 @@ h2{
 .card-header{
     background-color: paleturquoise;
 }
+#nav{
+    margin: auto;
+    max-width: 800;
+    width: 100%;
+}
