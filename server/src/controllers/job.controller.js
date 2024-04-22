@@ -4,6 +4,7 @@ import { ApiResponse } from "../utils/ApiResponse.js"
 import { asyncHandler } from "../utils/asyncHandler.js"
 import { Application } from "../models/application.model.js";
 import { Student } from "../models/student.model.js";
+import { sendMail } from "../utils/mail.js";
 import ExcelJS from 'exceljs';
 
 const createJob = asyncHandler(async (req, res) => {
@@ -47,9 +48,23 @@ const createJob = asyncHandler(async (req, res) => {
             registerBy
         })
 
+        let students = await Student.find({ graduationYear: batch });
+        let unableToSendMail = []
+
+        students.map(async (student) => {
+            try {
+                await sendMail(student.email, companyName);
+            } catch (error) {
+                unableToSendMail.push(student.email);
+                console.log(error);
+            }
+        });
+
+        console.log("Unable to send mail to: ", unableToSendMail);
+
         return res
             .status(200)
-            .json(new ApiResponse(200, job, "Job added successfully"))
+            .json(new ApiResponse(200, {job, unableToSendMail}, "Job added successfully"))
     } catch (error) {
         console.log("Error in creating job", error);
         throw new ApiError(500, "Something went wrong while creating job")
