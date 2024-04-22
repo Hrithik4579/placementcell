@@ -10,7 +10,7 @@ async function sendMail(receiver, companyName) {
             secure: false, // true for 465, false for other ports
             auth: {
                 user: 'pcellapp@gmail.com', // Your email address
-                pass: 'ftrjlvvyvmhgawdm' // Your email password
+                pass: process.env.SMTP_PASSWORD // Your email password
             }
         });
     
