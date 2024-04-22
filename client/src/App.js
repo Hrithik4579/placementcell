@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Ahome from './components/Ahome';
 import Addstudent from './components/Addstudent';
 import Addcompany from  './components/Addcompany';
+import Companyinfo from './components/Companyinfo';
 function App() {
   return (
     <div>
@@ -17,6 +18,7 @@ function App() {
               <Route exact path="/home" element={<Ahome/>}/>
               <Route exact path="/addstudent" element={<Addstudent/>}/>
               <Route exact path="/addcompany" element={<Addcompany/>}/>
+              <Route path="/company/:companyId" element={<Companyinfo/>}/>
             </Routes>
           </div>
         </Router>

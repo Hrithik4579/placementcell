@@ -39,7 +39,7 @@ export default function Ahome() {
         <div className="row">
             { articles.map((element)=>{
                 return <div key={element._id} className="col-md-4">
-                     <Companyitem cname={element.companyName} post={element.location} ctc={element.salary}/>
+                     <Companyitem articles={articles} cname={element.companyName} post={element.location} ctc={element.salary} id={element._id}/>
                 </div>
             })}
              </div>

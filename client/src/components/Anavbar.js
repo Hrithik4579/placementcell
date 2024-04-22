@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './login.css'
 export default function Anavbar() {
   return (
-    <div>
+    <div className="container-fluid">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
   <div className="container-fluid">
     <Link className="navbar-brand mr-5" to="/home">JIIT</Link>
