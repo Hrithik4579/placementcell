@@ -48,7 +48,12 @@ const createJob = asyncHandler(async (req, res) => {
             registerBy
         })
 
+        if (!job) {
+            throw new ApiError(500, "Something went wrong while creating job")
+        }
+        
         let students = await Student.find({ graduationYear: batch });
+
         let unableToSendMail = []
 
         students.map(async (student) => {
