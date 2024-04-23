@@ -11,6 +11,7 @@ export default function Addcompany() {
       companyName: formData.get('companyname'),
       location: formData.get('postingplace'),
       batch: formData.get('batch'),
+      role: formData.get('role'),
       salary: formData.get('stipend'),
       cgpa: formData.get('cgpa'),
       type: formData.get('category'),
@@ -76,6 +77,10 @@ export default function Addcompany() {
         <div className="mb-3">
           <label htmlFor="category" className="form-label">Category:</label>
           <input name='category' type="text" className="form-control" />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="role" className="form-label">Role:</label>
+          <input name='role' type="text" className="form-control" />
         </div>
         <div className="mb-3">
           <label htmlFor="allowed" className="form-label">Allowed Branches:</label>

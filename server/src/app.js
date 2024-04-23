@@ -27,11 +27,13 @@ app.use(cors(corsOptions));
 import student from './routes/student.route.js'
 import admin from './routes/admin.route.js'
 import application from './routes/application.route.js'
+import blog from './routes/blog.route.js'
 
 //routes declaration
 
 app.use("/api/students", student)
 app.use("/api/admin", admin)
 app.use("/api/applications", application)
+app.use("/api/blogs", blog)
 
 export { app }

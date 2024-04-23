@@ -2,24 +2,8 @@ import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import "./login.css"
 import Companyinfo from './Companyinfo'
-export default function Companyitem(props) {
+export default function Applyitem(props) {
   const {articles} = props;
-  const [art,setart]=useState(articles);
-    const deleteArticle= async(id)=>{
-      const response =  await fetch(`http://localhost:8000/api/job/${id}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            "auth-token": JSON.parse(localStorage.getItem('token'))
-          }
-        });
-        const json=response.json();
-      const newarticles=art.filter((article)=>{return article._id!==id});
-      setart(newarticles);
-  }
-  const Deleteartcle=()=>{
-    deleteArticle(art._id);
-  }
   return (
     <div className='company_card'>
       <div className="card">
@@ -36,3 +20,4 @@ export default function Companyitem(props) {
     </div>
   )
 }
+
