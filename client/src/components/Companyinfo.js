@@ -41,13 +41,14 @@ export default function Companyinfo(props) {
       <div className='mt-5'>
         <span>Company name: {company.companyName}</span>
         <hr/>
-        <span className='display-7'>Batch: {company.batch}</span><hr/>
-        <span className='display-7'>CGPA: {company.cgpa} </span><hr/>
-        <span className='display-7'>Branch: {company.branches}</span><hr/>
-        <span className='display-7'>place of posting: {company.location}</span><hr/>
-        <span className='display-7'>stipend: {company.salary}</span><hr/>
-        <span className='display-7'>category: {company.type}</span><hr/>
-        <span className='display-7'>Registration last date: {formatRegister(company.registerBy)}</span><hr/>  
+        <span className='display-8'>Batch: {company.batch}</span><hr/>
+        <span className='display-8'>CGPA: {company.cgpa} </span><hr/>
+        <span className='display-8'>Branch: {company.branches}</span><hr/>
+        <span className='display-8'>Place of posting: {company.location}</span><hr/>
+        <span className='display-8'>Role: {company.role}</span><hr/>
+        <span className='display-8'>Stipend: {company.salary}</span><hr/>
+        <span className='display-8'>Category: {company.type}</span><hr/>
+        <span className='display-8'>Registration last date: {formatRegister(company.registerBy)}</span><hr/>  
       </div>
       ):(<p>loading...</p>
       )}

@@ -79,8 +79,8 @@ export default function Addcompany() {
           <input name='category' type="text" className="form-control" />
         </div>
         <div className="mb-3">
-          <label htmlFor="category" className="form-label">Role:</label>
-          <input name='category' type="text" className="form-control" />
+          <label htmlFor="role" className="form-label">Role:</label>
+          <input name='role' type="text" className="form-control" />
         </div>
         <div className="mb-3">
           <label htmlFor="allowed" className="form-label">Allowed Branches:</label>
