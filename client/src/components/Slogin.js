@@ -1,35 +1,45 @@
 import React, { useState } from "react";
 import './login.css';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 // import {useNavigate} from "react-router-dom";
-const Login = (props) => {
+const SLogin = (props) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  // let navigate=useNavigate();
+  const [enrol,setEnrol]= useState(0);
+  const [pass,setPass]= useState("");
+  let navigate=useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:8000/api/students/studentlogin", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email: credentials.email, password: credentials.password }),
-    })
-    const json = await response.json();
-    console.log(json);
-    if (json.success) {
-      // localStorage.setItem('token', JSON.stringify(json.authToken));
-      props.showAlert("Logged in Successfully", "success")
-      // navigate('/');
+  //   const response = await fetch("http://localhost:8000/api/student/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ email: enrol, password: pass }),
+  //   })
+  //   const json = await response.json();
+  //   console.log(json);
+  //   if (json.success) {
+  //     localStorage.setItem('token', JSON.stringify(json.authToken));
+  //     props.showAlert("Logged in Successfully", "success")
+      navigate('/shome');
 
-    }
-    else {
-      props.showAlert("Invalid Credentials", "danger");
-    }
+  //   }
+  //   else {
+  //     props.showAlert("Invalid Credentials", "danger");
+  //   }
   }
   const handleChange = (e) => {
     e.preventDefault();
-    setCredentials({ ...credentials, [e.target.name]: e.target.value })
+    // setCredentials({ ...credentials, [e.target.name]: e.target.value })
+    if(e.target.name=="enroll"){
+      setEnrol(parseInt(e.target.value));
+    }
+    else{
+      setPass(e.target.value);
+    }
+        setCredentials({ ...credentials, [e.target.name]: e.target.value })
+
   }
 
   return (
@@ -40,14 +50,14 @@ const Login = (props) => {
 
         <form onSubmit={handleSubmit}>
           <div className="form-group mb-3 my-4">
-            <label htmlFor="email">Enroll:</label>
+            <label htmlFor="enroll">Enroll:</label>
             <div className="inpbox">
               <input
                 type="number"
                 className="form-control"
                 id="enroll"
                 name="enroll"
-                value={credentials.email}
+                value={enrol}
                 aria-describedby="emailHelp"
                 placeholder="Enter enroll no."
                 onChange={handleChange}
@@ -62,7 +72,7 @@ const Login = (props) => {
                 className="form-control"
                 id="password"
                 name="password"
-                value={credentials.password}
+                value={pass}
                 placeholder="Password"
                 onChange={handleChange}
               />
@@ -80,4 +90,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default SLogin;
