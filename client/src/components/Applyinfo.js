@@ -33,6 +33,11 @@ export default function Applyinfo(props) {
   const formatRegister=(dateString)=>{
     return  new Date(dateString).toLocaleDateString();
   }
+  const handleClick=(e)=>{
+    e.preventDefault();
+    alert("Applied Successfully!");
+    document.getElementById("apply_button").disabled=true;
+  }
   return (
     <div>
       <Snavbar/>
@@ -49,7 +54,8 @@ export default function Applyinfo(props) {
         <span className='display-7'>stipend: {company.salary}</span><hr/>
         <span className='display-7'>category: {company.type}</span><hr/>
         <span className='display-7'>Registration last date: {formatRegister(company.registerBy)}</span><hr/> 
-         <Link to='/applyform' className='btn btn-primary'>Apply</Link>
+  <input type="file" className="form-control mb-5" id="inputGroupFile02"/>
+         <button className='btn btn-dark' id="apply_button" onClick={handleClick}>Apply</button>
       </div>
       ):(<p>loading...</p>
       )}
