@@ -20,7 +20,7 @@ const generateAccessAndRefreshTokens = async(userId) =>{
     }
 }
 
-export const adminLogin = asyncHandler(async (req, res, next) => {
+const adminLogin = asyncHandler(async (req, res, next) => {
     const {userId, password} = req.body
     console.log(userId);
     const admin = await Admin.findOne({userId})
@@ -59,3 +59,28 @@ export const adminLogin = asyncHandler(async (req, res, next) => {
         )
     )
 })
+
+const adminLogout = asyncHandler(async (req, res, next) => {
+    try {
+        res.clearCookie("accessToken");
+        res.clearCookie("refreshToken");
+    
+        // Invalidate the refresh token on the server-side
+        const adminId = req.admin.id;
+        const user = await Admin.findById(adminId);
+    
+        if (!user) {
+            throw new ApiError(404, "User not found");
+        }
+    
+        user.refreshToken = undefined; // Invalidate the refresh token
+        await user.save({ validateBeforeSave: false });
+    
+        res.status(200).json(new ApiResponse(200, {}, "User logged out successfully"));
+    } catch (error) {
+        console.log(error);
+        throw new ApiError(500, "Something went wrong while logging out the user");
+    }
+});
+
+export { adminLogin, adminLogout }
