@@ -7,7 +7,7 @@ import { IconName } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 
 export default function Companyitem(props) {
-  
+
   const deleteArticle = async () => {
     const response = await fetch(`http://localhost:8000/api/admin/job/${props.id}`, {
       method: "DELETE",
@@ -23,6 +23,27 @@ export default function Companyitem(props) {
     props.onArticleDeleted(props.id)
   }
 
+  const generateReport = async () => {
+    const response = await fetch(`http://localhost:8000/api/admin/job/${props.id}/report`, {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    });
+    if (!response.ok) {
+      throw new Error('Failed to generate report');
+    }
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(new Blob([blob]));
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `report_${props.id}.xlsx`);
+    document.body.appendChild(link);
+    link.click();
+    link.parentNode.removeChild(link);
+  }
+
   return (
     <div className='company_card'>
       <div className="card">
@@ -34,7 +55,7 @@ export default function Companyitem(props) {
           <p className="card-text">{props.ctc}           <button onClick={deleteArticle} className="iconbutton"><FaTrash id="bin" /></button>
           </p>
           <Link to={`/company/${props.id}`} className="btn btn-primary">view opportunity</Link>
-          <button className="btn btn-dark" id='genbutton'>Generate Report</button>
+          <button className="btn btn-dark" onClick={generateReport} id='genbutton'>Generate Report</button>
         </div>
       </div>
     </div>
