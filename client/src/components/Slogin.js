@@ -54,13 +54,13 @@ const SLogin = (props) => {
 
   return (
     <div className="main">
-      <header>JIIT Placement Portal</header>
-      <div className="container">
-        <h2 className="my-3"><u>Student Login</u></h2>
+      {/* <header>JIIT Placement Portal</header> */}
+      <div className="container container1">
+        <h2 className="my-3 fs-4">Student Login</h2>
 
         <form onSubmit={handleSubmit}>
           <div className="form-group mb-3 my-4">
-            <label htmlFor="enroll">Enroll:</label>
+            <label htmlFor="enroll" className="ftext">Enroll:</label>
             <div className="inpbox">
               <input
                 type="number"
@@ -69,13 +69,13 @@ const SLogin = (props) => {
                 name="enroll"
                 value={enrol}
                 aria-describedby="emailHelp"
-                placeholder="Enter enroll no."
+                placeholder="enroll no."
                 onChange={handleChange}
               />
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password" className="ftext">Password:</label>
             <div className="inpbox">
               <input
                 type="password"
@@ -88,14 +88,15 @@ const SLogin = (props) => {
               />
             </div>
           </div>
-          <button type="submit" className="btn btn-primary my-3">
-            Submit
+          <button type="submit" className="btn btn-primary my-3 mt-5 signin">
+            Sign in
           </button>
-          <div>
+          <div className="text-center">
             <Link to="/" className="link text-muted">Sign in as Admin?</Link><br /><br />
           </div>
         </form>
       </div>
+      
     </div>
   );
 };
