@@ -2,6 +2,10 @@ import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import "./login.css"
 import Companyinfo from './Companyinfo'
+import bin from "../bin.jpg";
+import { IconName } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
+
 export default function Companyitem(props) {
   const {articles} = props;
   const [art,setart]=useState(articles);
@@ -17,8 +21,8 @@ export default function Companyitem(props) {
       const newarticles=art.filter((article)=>{return article._id!==id});
       setart(newarticles);
   }
-  const Deleteartcle=()=>{
-    deleteArticle(art._id);
+  const Deletearticle=()=>{
+    deleteArticle(props.id);
   }
   return (
     <div className='company_card'>
@@ -28,9 +32,10 @@ export default function Companyitem(props) {
         </div>
         <div className="card-body">
           <h5 className="card-title">{props.cname}</h5>
-          <p className="card-text">{props.ctc}</p>
+          <p className="card-text">{props.ctc}           <button onClick={Deletearticle} class="iconbutton"><FaTrash id="bin"/></button>
+</p>
           <Link to={`/company/${props.id}`} className="btn btn-primary">view opportunity</Link>
-
+          <button className="btn btn-dark" id='genbutton'>Generate Report</button>
         </div>
       </div>
     </div>

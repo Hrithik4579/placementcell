@@ -12,6 +12,7 @@ import Applyitem from './components/Applyitem';
 import Shome from './components/Shome';
 import Snavbar from './components/Snavbar';
 import Applyinfo from './components/Applyinfo';
+import Applystatus from './components/Applystatus';
 function App() {
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
               <Route path="/company/:companyId" element={<Companyinfo/>}/>
               <Route exact path="/shome" element={<Shome/>}/>
               <Route path="/apply/:companyId" element={<Applyinfo/>}/>
+              <Route exact path="/status" element={<Applystatus/>}/>
             </Routes>
           </div>
         </Router>
