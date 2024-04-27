@@ -45,13 +45,13 @@ const Login = (props) => {
 
   return (
     <div className="main">
-      <header>JIIT Placement Portal</header>
-      <div className="container1">
-        <h2 className="my-3"><u>Admin Login</u></h2>
-
+      {/* <header>JIIT Placement Portal</header> */}
+      {/* <div className="container1 container-fluid">  */}
+      <div className="container1"> 
+        <h2 className="admin fs-4 text-start">Admin Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group mb-3 my-4">
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="email" className="ftext">Email:</label>
             <div className="inpbox">
               <input
                 type="text"
@@ -65,8 +65,8 @@ const Login = (props) => {
               />
             </div>
           </div>
-          <div className="form-group">
-            <label htmlFor="password">Password:</label>
+          <div className="form-group ">
+            <label htmlFor="password" className="ftext">Password:</label>
             <div className="inpbox">
               <input
                 type="password"
@@ -79,10 +79,10 @@ const Login = (props) => {
               />
             </div>
           </div>
-          <button type="submit" className="btn btn-primary my-3" >
-            Submit
+          <button type="submit" className="btn btn-primary my-3 mt-5 signin" >
+            Sign in
           </button>
-          <div>
+          <div className="text-center">
             <Link to="/slogin" className="link text-muted">Sign in as Student?</Link><br /><br />
           </div>
         </form>

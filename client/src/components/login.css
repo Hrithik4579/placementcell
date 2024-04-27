@@ -1,12 +1,4 @@
-.container1{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
-    min-width: 90vh;
-    background: transparent;
-}
+
 body{
     padding-top: 60px;
     padding-left: 50px;
@@ -42,22 +34,12 @@ header{
     text-align: center;
     font-weight: bold;
 }
-.inpbox{
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-}
+
 h2{
     margin-top: 15px;
 }
-/* .nav{
-    margin-top: 10px;
-} */
-.form-control{
-    width:350px;
-}
+
+
 .mb-3{
     display: inline-block;
     margin-right: 100px;
@@ -85,3 +67,70 @@ h2{
   navbar{
     margin-bottom: 40px;
   }
+
+
+/* login */
+
+.container1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    min-width:70vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px); 
+    border-radius: 10px; 
+    margin: auto;
+    max-width: 20vw;
+    color: white;
+}
+.form-group{
+    width: 100%;
+}
+
+.inpbox{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+.signin{
+    width: 100%;
+    padding: 8px;
+    font-family: cursive !important;
+}
+.form-control::placeholder {
+    color: #cfcfcf;
+    font-size: small; 
+    padding: 10px;
+    font-family: cursive;
+}
+.ftext,.text-muted{
+    font-family: cursive;
+}
+.text-muted{
+    color: rgb(196, 196, 196) !important;
+} 
+
+/* .container-fluid{
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px); 
+    border-radius: 10px; 
+    margin: auto;
+    max-width: 20vw;
+    color: white;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
