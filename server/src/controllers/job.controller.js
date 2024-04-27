@@ -198,7 +198,7 @@ const generateReport = asyncHandler(async (req, res) => {
 
         const studentData = await Promise.all(studentPromises);
         
-        console.log("Student Data: ", studentData);
+        // console.log("Student Data: ", studentData);
         // export to excel
         const workbook = new ExcelJS.Workbook();
         const worksheet = workbook.addWorksheet(`Applications_${jobId}`);

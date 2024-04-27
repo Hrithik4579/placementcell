@@ -24,7 +24,7 @@ export default function Companyitem(props) {
   }
 
   const generateReport = async () => {
-    const response = await fetch(`http://localhost:8000/api/admin/job/${props.id}/report`, {
+    const response = await fetch(`http://localhost:8000/api/admin/job/report/${props.id}`, {
       method: "GET",
       credentials: "include",
       headers: {
