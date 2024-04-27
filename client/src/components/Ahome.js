@@ -30,6 +30,11 @@ export default function Ahome() {
 
     fetchJobs();
   }, []);
+
+  const handleArticleDeleted = (id) => {
+    // Update the articles state after deletion
+    setArticles(articles.filter(article => article._id !== id));
+  };
   
   return (
     <div>
@@ -39,7 +44,7 @@ export default function Ahome() {
         <div className="row">
             { articles.map((element)=>{
                 return <div key={element._id} className="col-md-4">
-                     <Companyitem articles={articles} cname={element.companyName} post={element.location} ctc={element.salary} id={element._id}/>
+                     <Companyitem onArticleDeleted={handleArticleDeleted} cname={element.companyName} post={element.location} ctc={element.salary} id={element._id}/>
                 </div>
             })}
              </div>

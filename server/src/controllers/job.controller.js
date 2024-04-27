@@ -95,7 +95,7 @@ const createJob = asyncHandler(async (req, res) => {
 const deleteJob = asyncHandler(async (req, res, next) => {
     const jobId = req.params.id
 
-    const job = await Job.findOneAndDelete(jobId)
+    const job = await Job.findByIdAndDelete(jobId)
 
     if (!job) {
         throw new ApiError(404, "Job not found")
@@ -198,7 +198,7 @@ const generateReport = asyncHandler(async (req, res) => {
 
         const studentData = await Promise.all(studentPromises);
         
-        console.log("Student Data: ", studentData);
+        // console.log("Student Data: ", studentData);
         // export to excel
         const workbook = new ExcelJS.Workbook();
         const worksheet = workbook.addWorksheet(`Applications_${jobId}`);

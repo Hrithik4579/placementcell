@@ -21,6 +21,29 @@ const generateAccessAndRefreshTokens = async (id) => {
     }
 }
 
+const studentLogout = asyncHandler(async (req, res) => {
+    // Clear the cookies storing the tokens on the client-side
+    try {
+        res.clearCookie("accessToken");
+        res.clearCookie("refreshToken");
+    
+        // Invalidate the refresh token on the server-side
+        const studentId = req.student.id;
+        const user = await Student.findById(studentId);
+    
+        if (!user) {
+            throw new ApiError(404, "User not found");
+        }
+    
+        user.refreshToken = undefined; // Invalidate the refresh token
+        await user.save({ validateBeforeSave: false });
+    
+        res.status(200).json(new ApiResponse(200, {}, "User logged out successfully"));
+    } catch (error) {
+        console.log(error);
+        throw new ApiError(500, "Something went wrong while logging out the user");
+    }
+});
 
 const studentLogin = asyncHandler(async (req, res, next) => {
     const { enrollmentNumber, password } = req.body
@@ -114,4 +137,4 @@ const getApplications = asyncHandler(async (req, res, next) => {
         .json(new ApiResponse(200, applications, "Applications fetched successfully"))
 })
 
-export { studentLogin, studentRegister, getApplications }
+export { studentLogin, studentRegister, getApplications, studentLogout }
