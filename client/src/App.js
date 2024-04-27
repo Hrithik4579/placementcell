@@ -13,6 +13,7 @@ import Shome from './components/Shome';
 import Snavbar from './components/Snavbar';
 import Applyinfo from './components/Applyinfo';
 import Applystatus from './components/Applystatus';
+// import Addblog from './components/Addblog';
 function App() {
   return (
     <>
@@ -29,6 +30,7 @@ function App() {
               <Route exact path="/shome" element={<Shome/>}/>
               <Route path="/apply/:companyId" element={<Applyinfo/>}/>
               <Route exact path="/status" element={<Applystatus/>}/>
+              {/* <Route exact path="/ablog" element={<Addblog/>}/> */}
             </Routes>
           </div>
         </Router>
