@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import "./login.css";
 import "./Companyitem.css";
 import Companyinfo from "./Companyinfo";
+import bin from "../bin.jpg";
+import { IconName } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
+
 export default function Companyitem(props) {
   const { articles } = props;
   const [art, setart] = useState(articles);

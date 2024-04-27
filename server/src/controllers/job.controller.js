@@ -6,6 +6,7 @@ import { Application } from "../models/application.model.js";
 import { Student } from "../models/student.model.js";
 import { sendMail } from "../utils/mail.js";
 import ExcelJS from 'exceljs';
+import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
 const createJob = asyncHandler(async (req, res) => {
     try {
@@ -18,7 +19,7 @@ const createJob = asyncHandler(async (req, res) => {
             cgpa,
             role,
             branches,
-            registerBy
+            registerBy,
         } = req.body
 
         // console.log(req.body);
@@ -27,7 +28,21 @@ const createJob = asyncHandler(async (req, res) => {
         ) {
             throw new ApiError(400, "Required fields cannot be empty")
         }
+        
+        const localFilePath = req.file?.path;
+        let response;
+        if (localFilePath){
+            response = await uploadOnCloudinary(localFilePath);
+        }
+        console.log("RESPONSE: ", response);
+        if (localFilePath && !response) {
+            fs.unlinkSync(localFilePath)
+            return ApiError(500, "Error uploading file to cloudinary")
+        }
 
+        const logoUrl = await response?.url;
+        console.log("LOGOURL: ", logoUrl);
+        
         // const existedUser = await Job.findOne({ jobId })
 
         // if (existedUser) {
@@ -45,7 +60,8 @@ const createJob = asyncHandler(async (req, res) => {
             cgpa,
             role,
             branches,
-            registerBy
+            registerBy,
+            logo: logoUrl
         })
 
         if (!job) {

@@ -19,7 +19,7 @@ export default function Snavbar() {
   <Link className="nav-link active" aria-current="page" to="/shome">Home</Link>
 </li>
 <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
-<li className="nav-item"><Link className="nav-link" to="/shome">Application Status</Link></li>
+<li className="nav-item"><Link className="nav-link" to="/status">Application Status</Link></li>
 <li className="nav-item"><Link className="nav-link" to="/shome">Feedback</Link></li>
 {/* <li className="nav-item"><Link className="nav-link" to="/">About</Link></li> */}
 </ul>

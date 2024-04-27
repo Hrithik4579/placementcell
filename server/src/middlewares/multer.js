@@ -6,14 +6,15 @@ let resumeStorage = multer.diskStorage({
         cb(null, 'public/temp/')
     },
     filename: function (req, file, cb) {
+        cb(null,Date.now() + '_' + file.originalname.replace(/ /g,'')) // replace - to remove all white spaces
 
-        if(!file.originalname.match(/\.(pdf)$/)) {
-            let err = new Error();
-            err.code = 'filetype';
-            return cb(err);
-        } else {
-            cb(null,Date.now() + '_' + file.originalname.replace(/ /g,'')) // replace - to remove all white spaces
-        }
+        // if(!file.originalname.match(/\.(pdf)$/)) {
+        //     let err = new Error();
+        //     err.code = 'filetype';
+        //     return cb(err);
+        // } else {
+        //     cb(null,Date.now() + '_' + file.originalname.replace(/ /g,'')) // replace - to remove all white spaces
+        // }
     }
 });
 
