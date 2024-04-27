@@ -28,6 +28,13 @@ const SLogin = (props) => {
     const json = await response.json();
     console.log(json);
     if (json.success) {
+      const { accessToken, refreshToken } = json.data;
+
+      // localStorage.setItem('token', JSON.stringify(json.authToken));
+      // Set cookies in document.cookie
+      document.cookie = `accessToken=${accessToken}; path=/;`;
+      document.cookie = `refreshToken=${refreshToken}; path=/;`;
+      console.log("Logged in Successfully");
       // localStorage.setItem('token', JSON.stringify(json.authToken));
       navigate('/shome');
     }

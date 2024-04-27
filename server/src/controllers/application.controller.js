@@ -11,7 +11,11 @@ const createApplication = asyncHandler(async (req, res) => {
   const { _id: studentId, fullName, cgpa: studentCgpa, graduationYear, branch } = req.student;
   const job = await Job.findById(jobId);
   const { cgpa: requiredCgpa, batch, branches, registerBy, active } = job;
-  const localFilePath = req.file.path;
+  const localFilePath = req.file?.path;
+
+  if (!localFilePath){
+    throw new ApiError(400, "Resume file is required");
+  }
 
   if (!active) {
     fs.unlinkSync(localFilePath)

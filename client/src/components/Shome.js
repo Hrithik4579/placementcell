@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Anavbar from './Anavbar'
 import Companyitem from './Companyitem'
 import Applyitem from  './Applyitem'
 import Snavbar from './Snavbar';
@@ -9,7 +8,7 @@ export default function Shome() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/admin/job', {
+        const response = await fetch('http://localhost:8000/api/students/job', {
           method: "GET",
           credentials: 'include',
           headers: {
