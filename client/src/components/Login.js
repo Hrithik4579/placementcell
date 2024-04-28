@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Login = (props) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   let navigate = useNavigate();
+
   const handleSubmit = async (e, data) => {
     e.preventDefault();
     data = { userId: credentials.email, password: credentials.password };
@@ -17,6 +18,11 @@ const Login = (props) => {
       },
       body: JSON.stringify(data),
     });
+
+    if (!response.ok) {
+      alert('Invalid Credentials');
+    }
+
     const json = await response.json();
     console.log(json);
     if (json.success) {
@@ -30,10 +36,6 @@ const Login = (props) => {
       console.log("Logged in Successfully");
       navigate('/home');
 
-    }
-    else {
-      props.showAlert("Invalid Credentials", "danger");
-      console.log("Invalid Credentials");
     }
   }
   const handleChange = (e) => {

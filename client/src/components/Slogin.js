@@ -5,41 +5,51 @@ import { useNavigate } from "react-router-dom";
 // import {useNavigate} from "react-router-dom";
 const SLogin = (props) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  const [enrol,setEnrol]= useState(0);
-  const [pass,setPass]= useState("");
-  let navigate=useNavigate();
+  const [enrol, setEnrol] = useState("");
+  const [pass, setPass] = useState("");
+
+  let navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-  //   const response = await fetch("http://localhost:8000/api/student/login", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ email: enrol, password: pass }),
-  //   })
-  //   const json = await response.json();
-  //   console.log(json);
-  //   if (json.success) {
-  //     localStorage.setItem('token', JSON.stringify(json.authToken));
-  //     props.showAlert("Logged in Successfully", "success")
-      navigate('/shome');
 
-  //   }
-  //   else {
-  //     props.showAlert("Invalid Credentials", "danger");
-  //   }
+    const response = await fetch("http://localhost:8000/api/students/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ enrollmentNumber: enrol, password: pass }),
+    })
+
+    if (!response.ok) {
+      alert('Invalid Credentials');
+    }
+
+    const json = await response.json();
+    console.log(json);
+    if (json.success) {
+      const { accessToken, refreshToken } = json.data;
+
+      // localStorage.setItem('token', JSON.stringify(json.authToken));
+      // Set cookies in document.cookie
+      document.cookie = `accessToken=${accessToken}; path=/;`;
+      document.cookie = `refreshToken=${refreshToken}; path=/;`;
+      console.log("Logged in Successfully");
+      // localStorage.setItem('token', JSON.stringify(json.authToken));
+      navigate('/shome');
+    }
   }
+
   const handleChange = (e) => {
     e.preventDefault();
     // setCredentials({ ...credentials, [e.target.name]: e.target.value })
-    if(e.target.name=="enroll"){
+    if (e.target.name == "enroll") {
       setEnrol(parseInt(e.target.value));
     }
-    else{
+    else {
       setPass(e.target.value);
     }
-        setCredentials({ ...credentials, [e.target.name]: e.target.value })
-
+    setCredentials({ ...credentials, [e.target.name]: e.target.value })
   }
 
   return (

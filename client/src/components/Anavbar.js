@@ -52,7 +52,7 @@ export default function Anavbar() {
 <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
 <li className="nav-item"><Link className="nav-link" to="/addstudent">Add Student</Link></li>
 <li className="nav-item"><Link className="nav-link" to="/addcompany">Add Company</Link></li>
-<li className="nav-item"><Link className="nav-link" to="/ablog">Add Blog</Link></li>
+{/* <li className="nav-item"><Link className="nav-link" to="/ablog">Add Blog</Link></li> */}
 
 {/* <li className="nav-item"><Link className="nav-link" to="/">About</Link></li> */}
 </ul>
