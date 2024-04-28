@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import "./login.css"
-import Companyinfo from './Companyinfo'
 import Snavbar from './Snavbar';
+
 export default function Applyitem(props) {
-  const {articles} = props;
+  
   return (
     <div>
       <Snavbar/>

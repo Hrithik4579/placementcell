@@ -6,7 +6,9 @@ import "./Companyinfo.css";
 export default function Companyinfo(props) {
   const { companyId } = useParams();
   const [company, setCompany] = useState({});
+
   useEffect(() => {
+
     const fetchCompany = async () => {
       try {
         const response = await fetch(
@@ -31,9 +33,11 @@ export default function Companyinfo(props) {
     };
     fetchCompany();
   }, [companyId]);
+
   const formatRegister = (dateString) => {
     return new Date(dateString).toLocaleDateString();
   };
+  
   return (
     <div>
       <Anavbar />

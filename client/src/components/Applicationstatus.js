@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import Snavbar from './Snavbar';
 import Applicationitem from './Applicationitem';
-import {Link} from 'react-router-dom';
 export default function Applicationstatus() {
     const [articles, setArticles] = useState([]);
 
@@ -31,6 +30,7 @@ export default function Applicationstatus() {
 
     fetchJobs();
   }, []);
+  
   return (
     <div>
        <Snavbar/>

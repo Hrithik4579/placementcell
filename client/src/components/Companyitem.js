@@ -1,11 +1,8 @@
 
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import "./login.css"
 import "./Companyitem.css";
-import Companyinfo from './Companyinfo'
-import bin from "../bin.jpg";
-import { IconName } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 
 export default function Companyitem(props) {
@@ -53,7 +50,7 @@ export default function Companyitem(props) {
       <div className="card p-3 mb-2">
         <div className="d-flex justify-content-between">
           <div className="d-flex flex-row align-items-center">
-            <img className="icon" src={props.logoUrl} alt="Cloudinary Image"/>
+            <img className="icon" src={props.logoUrl} alt="Cloudinary"/>
               {/* {" "} */}
               {/* <img src={props.logoUrl} alt="Cloudinary Image" /> */}
               {/* <i className="bx bxl-mailchimp"></i>{" "} */}
