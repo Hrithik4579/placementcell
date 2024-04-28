@@ -46,7 +46,7 @@ export default function Applyinfo(props) {
       console.log(companyId);
       formData.append('jobId', companyId);
       formData.append('resume', document.getElementById('inputGroupFile02').files[0]);
-      
+      console.log(document.getElementById('inputGroupFile02').files[0]);
       const response = await fetch(`http://localhost:8000/api/applications`, {
         method: "POST",
         credentials: 'include',
