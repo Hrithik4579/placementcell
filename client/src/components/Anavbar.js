@@ -46,7 +46,7 @@ export default function Anavbar() {
 <li className="nav-item"><Link className="nav-link" to="/addcompany">Add Company</Link></li>
 <li className="nav-item"><Link className="nav-link" to="/ablog">Add Blog</Link></li>
 <li className="nav-item"><Link className="nav-link" to="/vblog">View Blogs</Link></li>
-<li className="nav-item" id="logout"><Link className="nav-link" to="/logout"><button onClick={handleClick} type="button" class="btn btn-outline-info">Logout</button>
+<li className="nav-item" id="logout"><Link className="nav-link" to="/logout"><button onClick={handleClick} type="button" className="btn btn-outline-info">Logout</button>
 </Link></li>
 {/* <li className="nav-item"><Link className="nav-link" to="/">About</Link></li> */}
 </ul>

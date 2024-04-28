@@ -47,7 +47,7 @@ export default function Snavbar() {
               <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/applications">Application Status</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/shome">Feedback</Link></li>
-              <li className="nav-item" id="logout"><Link className="nav-link" to="/logout"><button onClick={handleClick} type="button" class="btn btn-outline-info">Logout</button></Link></li>
+              <li className="nav-item" id="logout"><Link className="nav-link" to="/logout"><button onClick={handleClick} type="button" className="btn btn-outline-info">Logout</button></Link></li>
             </ul>
 
           </div>
