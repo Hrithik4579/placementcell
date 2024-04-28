@@ -16,7 +16,6 @@ export default function Companyitem(props) {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": JSON.parse(localStorage.getItem('token'))
       }
     });
     if (!response.ok) {
@@ -48,21 +47,22 @@ export default function Companyitem(props) {
 
   return (
     <div className="company_card">
-      {/* <div class="container mt-5 mb-3"> */}
-      {/* <div class="row"> */}
-      {/* <div class="col-md-4"> */}
-      <div class="card p-3 mb-2">
-        <div class="d-flex justify-content-between">
-          <div class="d-flex flex-row align-items-center">
-            <div class="icon">
-              {" "}
-              <i class="bx bxl-mailchimp"></i>{" "}
-            </div>
-            <div class="ms-2 c-details">
-              <h6 class="mb-0">{props.cname}</h6>
+      {/* <div className="container mt-5 mb-3"> */}
+      {/* <div className="row"> */}
+      {/* <div className="col-md-4"> */}
+      <div className="card p-3 mb-2">
+        <div className="d-flex justify-content-between">
+          <div className="d-flex flex-row align-items-center">
+            <img className="icon" src={props.logoUrl} alt="Cloudinary Image"/>
+              {/* {" "} */}
+              {/* <img src={props.logoUrl} alt="Cloudinary Image" /> */}
+              {/* <i className="bx bxl-mailchimp"></i>{" "} */}
+            {/* <img/> */}
+            <div className="ms-2 c-details">
+              <h6 className="mb-0">{props.cname}</h6>
             </div>
           </div>
-          <div class="badge">
+          <div className="badge">
             {" "}
             <span>Design</span>{" "}
           </div>
