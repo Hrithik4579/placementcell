@@ -1,0 +1,53 @@
+.jiitlogo {
+  width: 50px;
+  height: 50px;
+  background-image: url("../../jaypee_logo.png");
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center; 
+}
+
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 27px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 2px white; 
+}
+
+.black-ops-one-regular {
+  font-family: "Black Ops One", system-ui;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 27px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 2px white; 
+}
+
+.navbar{
+    margin: 10px 10px 10px 10px;
+    border-radius: 50px;
+    height: 60px;
+}
+.nav-link{
+    margin-left: -10px;
+}
+
+.navbar-nav{
+    margin-left: -100px;
+}
+.nav-link:hover{
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    text-shadow: 0 0 .5px black; 
+}
+
+.collapse{
+    margin-top: 0 !important;
+}
+
+
+
+
