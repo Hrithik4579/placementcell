@@ -39,24 +39,32 @@ export default function Applyinfo(props) {
     return new Date(dateString).toLocaleDateString();
   }
 
-  const handleClick = async (e) => {
-    e.preventDefault();
-    
-    const response = await fetch(`http://localhost:8000/api/applications`, {
-      method: "POST",
-      credentials: 'include',
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ jobId: companyId })
-    });
-    
-    if (!response.ok){
-      alert("Application unsuccessful");
-      return;
+  const handleClick = async (e, companyId) => {
+    try {
+      e.preventDefault();
+      const formData = new FormData();
+      console.log(companyId);
+      formData.append('jobId', companyId);
+      formData.append('resume', document.getElementById('inputGroupFile02').files[0]);
+      
+      const response = await fetch(`http://localhost:8000/api/applications`, {
+        method: "POST",
+        credentials: 'include',
+        body: formData
+      });
+
+      console.log(response);
+  
+      if (!response.ok) {
+        alert("Application unsuccessful");
+        return;
+      }
+      alert("Applied Successfully!");
+      document.getElementById("apply_button").disabled = true;
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred while submitting the application.");
     }
-    alert("Applied Successfully!");
-    document.getElementById("apply_button").disabled = true;
   }
 
   return (
@@ -75,8 +83,8 @@ export default function Applyinfo(props) {
           <span className='display-7'>Stipend: {company.salary}</span><hr />
           <span className='display-7'>Category: {company.type}</span><hr />
           <span className='display-7'>Registration last date: {formatRegister(company.registerBy)}</span><hr />
-          <input type="file" className="form-control mb-5" id="inputGroupFile02" />
-          <button className='btn btn-dark' id="apply_button" onClick={handleClick}>Apply</button>
+          <input type="file" className="form-control mb-5" id="inputGroupFile02" required accept='.docx, .doc, .pdf'/>
+          <button className='btn btn-dark' id="apply_button" onClick={(e) => handleClick(e, company._id)}>Apply</button>
         </div>
       ) : (<p>loading...</p>
       )}
