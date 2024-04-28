@@ -48,21 +48,21 @@ export default function Companyitem(props) {
 
   return (
     <div className="company_card">
-      {/* <div class="container mt-5 mb-3"> */}
-      {/* <div class="row"> */}
-      {/* <div class="col-md-4"> */}
-      <div class="card p-3 mb-2">
-        <div class="d-flex justify-content-between">
-          <div class="d-flex flex-row align-items-center">
-            <div class="icon">
+      {/* <div className="container mt-5 mb-3"> */}
+      {/* <div className="row"> */}
+      {/* <div className="col-md-4"> */}
+      <div className="card p-3 mb-2">
+        <div className="d-flex justify-content-between">
+          <div className="d-flex flex-row align-items-center">
+            <div className="icon">
               {" "}
-              <i class="bx bxl-mailchimp"></i>{" "}
+              <i className="bx bxl-mailchimp"></i>{" "}
             </div>
-            <div class="ms-2 c-details">
-              <h6 class="mb-0">{props.cname}</h6>
+            <div className="ms-2 c-details">
+              <h6 className="mb-0">{props.cname}</h6>
             </div>
           </div>
-          <div class="badge">
+          <div className="badge">
             {" "}
             <span>Design</span>{" "}
           </div>

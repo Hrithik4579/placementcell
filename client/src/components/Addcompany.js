@@ -9,28 +9,12 @@ export default function Addcompany() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(formRef.current);
-    const companyData = {
-      companyName: formData.get("companyname"),
-      location: formData.get("postingplace"),
-      batch: formData.get("batch"),
-      role: formData.get("role"),
-      salary: formData.get("stipend"),
-      cgpa: formData.get("cgpa"),
-      type: formData.get("category"),
-      branches: formData.get("allowed"),
-      registerBy: formData.get("lastdate"),
-    };
-
-    console.log(companyData);
 
     try {
       const response = await fetch("http://localhost:8000/api/admin/job", {
         method: "POST",
         credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(companyData),
+        body: formData,
       });
 
       if (!response.ok) {
@@ -42,7 +26,7 @@ export default function Addcompany() {
       alert("Company added successfully");
       formRef.current.reset();
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       alert("Failed to add company");
     }
   };
@@ -61,22 +45,22 @@ export default function Addcompany() {
               <div className="row">
                 <div className="col-md-6">
                   <div className="mb-2">
-                    <label htmlFor="companyname" className="form-label">
+                    <label htmlFor="companyName" className="form-label">
                       Company Name:
                     </label>
                     <input
-                      name="companyname"
+                      name="companyName"
                       type="text"
                       className="form-control"
                       aria-describedby="emailHelp"
                     />
                   </div>
                   <div className="mb-2">
-                    <label htmlFor="postingplace" className="form-label">
+                    <label htmlFor="location" className="form-label">
                       Place of posting:
                     </label>
                     <input
-                      name="postingplace"
+                      name="location"
                       type="text"
                       className="form-control"
                     />
@@ -92,16 +76,16 @@ export default function Addcompany() {
                     />
                   </div>
                   <div className="mb-2">
-                    <label htmlFor="stipend" className="form-label">
+                    <label htmlFor="salary" className="form-label">
                       CTC/Stipend:
                     </label>
                     <input
-                      name="stipend"
+                      name="salary"
                       type="number"
                       className="form-control"
                     />
                   </div>
-                  <div className="mb-3">
+                  <div className="mb-2">
                     <label htmlFor="role" className="form-label">
                       Role:
                     </label>
@@ -116,32 +100,43 @@ export default function Addcompany() {
                     <input name="cgpa" type="number" className="form-control" />
                   </div>
                   <div className="mb-2">
-                    <label htmlFor="category" className="form-label">
+                    <label htmlFor="type" className="form-label">
                       Category:
                     </label>
                     <input
-                      name="category"
+                      name="type"
                       type="text"
                       className="form-control"
                     />
                   </div>
                   <div className="mb-2">
-                    <label htmlFor="allowed" className="form-label">
+                    <label htmlFor="branches" className="form-label">
                       Allowed Branches:
                     </label>
                     <input
-                      name="allowed"
+                      name="branches"
                       type="text"
                       className="form-control"
                     />
                   </div>
                   <div className="mb-2">
-                    <label htmlFor="lastdate" className="form-label">
+                    <label htmlFor="registerBy" className="form-label">
                       Registration Last Date:
                     </label>
                     <input
-                      name="lastdate"
+                      name="registerBy"
                       type="date"
+                      className="form-control"
+                    />
+                  </div>
+                  <div className="mb-2">
+                    <label htmlFor="logo" className="form-label">
+                      Company Logo:
+                    </label>
+                    <input
+                      name="logo"
+                      type="file"
+                      id="logo"
                       className="form-control"
                     />
                   </div>
