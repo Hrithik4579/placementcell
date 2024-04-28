@@ -16,7 +16,6 @@ export default function Companyitem(props) {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": JSON.parse(localStorage.getItem('token'))
       }
     });
     if (!response.ok) {
@@ -54,10 +53,11 @@ export default function Companyitem(props) {
       <div className="card p-3 mb-2">
         <div className="d-flex justify-content-between">
           <div className="d-flex flex-row align-items-center">
-            <div className="icon">
-              {" "}
-              <i className="bx bxl-mailchimp"></i>{" "}
-            </div>
+            <img className="icon" src={props.logoUrl} alt="Cloudinary Image"/>
+              {/* {" "} */}
+              {/* <img src={props.logoUrl} alt="Cloudinary Image" /> */}
+              {/* <i className="bx bxl-mailchimp"></i>{" "} */}
+            {/* <img/> */}
             <div className="ms-2 c-details">
               <h6 className="mb-0">{props.cname}</h6>
             </div>

@@ -17,7 +17,7 @@ export default function Ahome() {
         const json = await response.json();
         
         if (json.success){
-          console.log(json);
+          // console.log(json);
           setArticles(json.data);
         }
         else{
@@ -44,7 +44,7 @@ export default function Ahome() {
         <div className="row">
             { articles.map((element)=>{
                 return <div key={element._id} className="col-md-4">
-                     <Companyitem onArticleDeleted={handleArticleDeleted} cname={element.companyName} post={element.location} ctc={element.salary} id={element._id}/>
+                     <Companyitem onArticleDeleted={handleArticleDeleted} logoUrl={element.logo} cname={element.companyName} post={element.location} ctc={element.salary} id={element._id}/>
                 </div>
             })}
              </div>
