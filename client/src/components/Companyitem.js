@@ -70,7 +70,8 @@ export default function Companyitem(props) {
 
         <div className="card-body">
           <h5 className="card-title">{props.cname}</h5>
-          <p className="card-text">{props.ctc}           <button onClick={deleteArticle} className="iconbutton"><FaTrash id="bin" /></button>
+          <p className="card-text">{props.ctc}           
+            <button onClick={deleteArticle} className="iconbutton"><FaTrash id="bin" /></button>
           </p>
           <Link to={`/company/${props.id}`} className="btn btn-primary">view opportunity</Link>
           <button className="btn btn-dark" onClick={generateReport} id='genbutton'>Generate Report</button>

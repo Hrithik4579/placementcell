@@ -8,8 +8,12 @@ import fs from "fs"
 
 const createApplication = asyncHandler(async (req, res) => {
   const { jobId } = req.body;
-  const { _id: studentId, fullName, cgpa: studentCgpa, graduationYear, branch } = req.student;
+  const { _id: studentId, cgpa: studentCgpa, graduationYear, branch } = req.student;
+  console.log("JobID: ",jobId);
   const job = await Job.findById(jobId);
+  if (!job) {
+    throw new ApiError(404, "Job not found");
+  }
   const { cgpa: requiredCgpa, batch, branches, registerBy, active } = job;
   const localFilePath = req.file?.path;
 
