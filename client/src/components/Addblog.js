@@ -1,7 +1,44 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import './Addblog.css';
 import Anavbar from './Anavbar';
 export default function Addblog() {
+    const formRef = useRef();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(formRef.current);
+    const companyData = {
+      companyName: formData.get("companyname"),
+      type: formData.get( "type" ),
+      batch: formData.get("batch"),
+      desc: formData.get("blog"),
+    };
+
+    console.log(companyData);
+
+    try {
+      const response = await fetch("http://localhost:8000/api/blogs", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(companyData),
+      });
+
+      if (!response.ok) {
+        // console.log(response.statusText);
+        // console.log(response.error);
+        throw new Error("Failed to add company");
+      }
+
+      alert("Blog added successfully");
+      formRef.current.reset();
+    } catch (error) {
+      console.error(error);
+      alert("Failed to add Blog");
+    }
+  };
   return (
     <div>
         <Anavbar/>
@@ -11,7 +48,7 @@ export default function Addblog() {
     <div className="mt-1 nav d-flex justify-content-center">
         <h2>ENTER BLOG</h2>
             </div>
-            <form >
+            <form ref={formRef} onSubmit={handleSubmit}>
               <div className="row">
                 <div className="col-md-6">
                   <div className="mb-2">
@@ -30,7 +67,7 @@ export default function Addblog() {
                       Type:
                     </label>
                     <input
-                      name="postingplace"
+                      name="type"
                       type="text"
                       className="form-control"
                     />
@@ -40,7 +77,7 @@ export default function Addblog() {
                       Batch:
                     </label>
                     <input
-                      name="postingplace"
+                      name="batch"
                       type="text"
                       className="form-control"
                     />
@@ -50,7 +87,7 @@ export default function Addblog() {
                       Enter Blog:
                     </label>
                     <textarea
-                      name="postingplace"
+                      name="blog"
                       type="text"
                       className="form-control"
                       id="desc"
@@ -58,6 +95,11 @@ export default function Addblog() {
                   </div>
                   </div>
                   </div>
+                  <div className="text-center">
+                <button type="submit" className="btn btn-dark btn-lg mt-2">
+                  Add Blog
+                </button>
+              </div>
                   </form>
                   </div>
                   </div>

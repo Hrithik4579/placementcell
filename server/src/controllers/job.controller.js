@@ -126,7 +126,8 @@ const makeJobInactive = asyncHandler(async (req, res) => {
 
 const fetchJob = asyncHandler(async (req, res) => {
     const id = req.params.id;
-    const job = await Job.findById({ _id: id });
+    console.log(id);
+    const job = await Job.findById(id);
 
     if (!job) {
         throw new ApiError(404, "Job Not Found");
