@@ -9,14 +9,14 @@ export default function Companyitem(props) {
 
   const deleteArticle = async () => {
     const response = await fetch(`http://localhost:8000/api/admin/job/${props.id}`, {
-      method: "DELETE",
+      method: "PUT",
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
       }
     });
     if (!response.ok) {
-      throw new Error('Failed to delete article');
+      throw new Error('Failed to delete job');
     }
     props.onArticleDeleted(props.id)
   }
@@ -50,10 +50,10 @@ export default function Companyitem(props) {
       <div className="card p-3 mb-2">
         <div className="d-flex justify-content-between">
           <div className="d-flex flex-row align-items-center">
-            <img className="icon" src={props.logoUrl} alt="Cloudinary"/>
-              {/* {" "} */}
-              {/* <img src={props.logoUrl} alt="Cloudinary Image" /> */}
-              {/* <i className="bx bxl-mailchimp"></i>{" "} */}
+            <img className="icon" src={props.logoUrl} alt="Cloudinary" />
+            {/* {" "} */}
+            {/* <img src={props.logoUrl} alt="Cloudinary Image" /> */}
+            {/* <i className="bx bxl-mailchimp"></i>{" "} */}
             {/* <img/> */}
             <div className="ms-2 c-details">
               <h6 className="mb-0">{props.cname}</h6>
@@ -67,10 +67,10 @@ export default function Companyitem(props) {
 
         <div className="card-body">
           <h5 className="card-title">{props.cname}</h5>
-          <p className="card-text">{props.ctc}           
+          <p className="card-text">{props.ctc}
             <button onClick={deleteArticle} className="iconbutton"><FaTrash id="bin" /></button>
           </p>
-          <Link to={`/company/${props.id}`} className="btn btn-primary">view opportunity</Link>
+          <Link to={`/company/${props.id}`} className="btn btn-primary">View Details</Link>
           <button className="btn btn-dark" onClick={generateReport} id='genbutton'>Generate Report</button>
         </div>
       </div>

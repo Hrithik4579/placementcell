@@ -16,7 +16,7 @@ export default function Applyitem(props) {
         <div className="card-body">
           <h5 className="card-title">{props.cname}</h5>
           <p className="card-text">{props.ctc}</p>
-          <Link to={`/apply/${props.id}`} className="btn btn-primary">view opportunity</Link>
+          <Link to={`/apply/${props.id}`} className="btn btn-primary">View Opportunity</Link>
 
         </div>
       </div>

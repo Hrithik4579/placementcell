@@ -26,7 +26,7 @@ export default function Snavbar() {
       console.log("error fetching company", error);
     }
   }
-  
+
   return (
     <div>
       <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
