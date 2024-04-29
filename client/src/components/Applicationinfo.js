@@ -1,26 +1,24 @@
-import React, { useEffect, useState } from "react";
-import Anavbar from "./Anavbar";
-import { useParams } from "react-router-dom";
-import "./Companyinfo.css";
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
+import Snavbar from './Snavbar';
 
-export default function Companyinfo(props) {
+export default function Applicationinfo() {
   const { companyId } = useParams();
   const [company, setCompany] = useState({});
 
   useEffect(() => {
-
     const fetchCompany = async () => {
       try {
+        console.log(companyId);
         const response = await fetch(
-          `http://localhost:8000/api/admin/job/${companyId}`,
+          `http://localhost:8000/api/students/job/${companyId}`,
           {
             method: "GET",
             credentials: "include",
-            header: {
-              "Content-Type": "application/json",
-            },
+
           }
         );
+        console.log(companyId);
         const json = await response.json();
         if (json.success) {
           setCompany(json.data);
@@ -37,10 +35,10 @@ export default function Companyinfo(props) {
   const formatRegister = (dateString) => {
     return new Date(dateString).toLocaleDateString();
   };
-
+  
   return (
     <div>
-      <Anavbar />
+      <Snavbar />
       <div className="container-fluid hello">
         <h1 className="text-center">
           <b>
@@ -78,5 +76,5 @@ export default function Companyinfo(props) {
         )}
       </div>
     </div>
-  );
+  )
 }

@@ -1,43 +1,62 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./login.css";
+
+import React from 'react'
+import { Link } from 'react-router-dom'
+import "./login.css"
 import "./Companyitem.css";
-import Companyinfo from "./Companyinfo";
-import bin from "../bin.jpg";
-import { IconName } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 
 export default function Companyitem(props) {
-  const { articles } = props;
-  const [art, setart] = useState(articles);
-  const deleteArticle = async (id) => {
-    const response = await fetch(`http://localhost:8000/api/job/${id}`, {
-      method: "DELETE",
+
+  const deleteArticle = async () => {
+    const response = await fetch(`http://localhost:8000/api/admin/job/${props.id}`, {
+      method: "PUT",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": JSON.parse(localStorage.getItem("token")),
-      },
+      }
     });
-    const json = response.json();
-    const newarticles = art.filter((article) => {
-      return article._id !== id;
+    if (!response.ok) {
+      throw new Error('Failed to delete job');
+    }
+    props.onArticleDeleted(props.id)
+  }
+
+  const generateReport = async () => {
+    const response = await fetch(`http://localhost:8000/api/admin/job/report/${props.id}`, {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      }
     });
-    setart(newarticles);
-  };
-  const Deleteartcle = () => {
-    deleteArticle(art._id);
-  };
+    if (!response.ok) {
+      throw new Error('Failed to generate report');
+    }
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(new Blob([blob]));
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `report_${props.id}.xlsx`);
+    document.body.appendChild(link);
+    link.click();
+    link.parentNode.removeChild(link);
+  }
+
   return (
     <div className="company_card">
-      <div class="card p-3 mb-2">
-        <div class="d-flex justify-content-between">
-          <div class="d-flex flex-row align-items-center">
-            <div class="icon">
-              {" "}
-              <i class="bx bxl-mailchimp"></i>{" "}
-            </div>
-            <div class="ms-2 c-details">
-              <h5 class="mb-0">{props.cname}</h5>
+      {/* <div className="container mt-5 mb-3"> */}
+      {/* <div className="row"> */}
+      {/* <div className="col-md-4"> */}
+      <div className="card p-3 mb-2">
+        <div className="d-flex justify-content-between">
+          <div className="d-flex flex-row align-items-center">
+            <img className="icon" src={props.logoUrl} alt="Cloudinary" />
+            {/* {" "} */}
+            {/* <img src={props.logoUrl} alt="Cloudinary Image" /> */}
+            {/* <i className="bx bxl-mailchimp"></i>{" "} */}
+            {/* <img/> */}
+            <div className="ms-2 c-details">
+              <h5 className="mb-0">{props.cname}</h5>
             </div>
           </div>
           <div className="badge">
@@ -77,6 +96,9 @@ export default function Companyitem(props) {
             view
           </Link>
         </div>
+        <button onClick={deleteArticle} className="iconbutton"><FaTrash id="bin" /></button>
+        <button className="btn btn-dark" onClick={generateReport} id='genbutton'>Generate Report</button>
+
       </div>
     </div>
   );
