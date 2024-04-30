@@ -145,8 +145,8 @@ export default function Anavbar() {
             Add Blog
           </Link>
         </li>
-        <li className={`nav-item ${location.pathname === '/vblog' ? 'active' : ''}`}>
-          <Link className="nav-link" to="/vblog">
+        <li className={`nav-item ${location.pathname === '/avblog' ? 'active' : ''}`}>
+          <Link className="nav-link" to="/avblog">
             View Blogs
           </Link>
         </li>

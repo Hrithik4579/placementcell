@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import Anavbar from './Anavbar';
 import './Applyinfo.css';
-import Snavbar from './Snavbar';
-export default function Bloginfo() {
+export default function ABloginfo() {
   const { blogId } = useParams();
   const [blog, setBlog] = useState({});
 
@@ -38,7 +38,7 @@ export default function Bloginfo() {
 
   return (
     <div className='apply_info'>
-      <Snavbar />
+      <Anavbar />
       <div className='container-fluid apply_content'>
       <h1 className='text-center'><b><u>Blog Details</u></b></h1>
 
