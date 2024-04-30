@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Slogin from './components/Slogin';
 import Login from './components/Login';
@@ -7,10 +6,7 @@ import Ahome from './components/Ahome';
 import Addstudent from './components/Addstudent';
 import Addcompany from  './components/Addcompany';
 import Companyinfo from './components/Companyinfo';
-import Anavbar from './components/Anavbar';
-import Applyitem from './components/Applyitem';
 import Shome from './components/Shome';
-import Snavbar from './components/Snavbar';
 import Applyinfo from './components/Applyinfo';
 import Applystatus from './components/Applystatus';
 import Addblog from './components/Addblog';

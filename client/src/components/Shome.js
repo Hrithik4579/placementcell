@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Companyitem from './Companyitem'
-import Applyitem from  './Applyitem'
+import Applyitem from './Applyitem'
 import Snavbar from './Snavbar';
 import './login.css'
 export default function Shome() {
@@ -17,12 +16,12 @@ export default function Shome() {
           }
         });
         const json = await response.json();
-        
-        if (json.success){
+
+        if (json.success) {
           console.log(json);
           setArticles(json.data);
         }
-        else{
+        else {
           console.log("Json response unsuccessful");
         }
       } catch (error) {
@@ -32,22 +31,22 @@ export default function Shome() {
 
     fetchJobs();
   }, []);
-  
+
   return (
     <div className='main123'>
         <Snavbar/>
       <div className='mt-4'>
-      <div className="container">
-        <div className="row">
-            { articles.map((element)=>{
-                return <div key={element._id} className="col-md-4">
-                     <Applyitem articles={articles} cname={element.companyName} post={element.location} ctc={element.salary} id={element._id}/>
-                </div>
+        <div className="container">
+          <div className="row">
+            {articles.map((element) => {
+              return <div key={element._id} className="col-md-4">
+                <Applyitem articles={articles} cname={element.companyName} post={element.location} ctc={element.salary} id={element._id} role={element.role} />
+              </div>
             })}
-             </div>
-             </div>
-    
-             </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   )
 }

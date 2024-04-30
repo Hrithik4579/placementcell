@@ -32,6 +32,7 @@ export default function Applicationstatus() {
 
     fetchJobs();
   }, []);
+  
   return (
     <div className='appmain'>
        <Snavbar/>

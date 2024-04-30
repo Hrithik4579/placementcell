@@ -3,7 +3,7 @@ import './login.css';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
-const Login = (props) => {
+const Login = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   let navigate = useNavigate();
 

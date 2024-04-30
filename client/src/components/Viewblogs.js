@@ -1,8 +1,8 @@
-import React ,{useState,useEffect}from 'react'
-import Blogitem from './Blogitem';
+import React, { useState, useEffect } from 'react'
 import Anavbar from './Anavbar';
+
 export default function Viewblogs() {
-    const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -15,12 +15,12 @@ export default function Viewblogs() {
           }
         });
         const json = await response.json();
-        
-        if (json.success){
+
+        if (json.success) {
           console.log(json);
           setBlogs(json.data);
         }
-        else{
+        else {
           console.log("Json response unsuccessful");
         }
       } catch (error) {
@@ -30,21 +30,22 @@ export default function Viewblogs() {
 
     fetchBlogs();
   }, []);
-return (
+  
+  return (
     <div>
-         <Anavbar/>
+      <Anavbar />
       <div className='mt-4'>
-      <div className="container">
-        <div className="row">
+        <div className="container">
+          <div className="row">
             {/* {blogs.map((element)=>{
                 return <div key={element._id} className="col-md-4">
                      <Blogitem cname={element.companyName} type={element.type} batch={element.batch} id={element._id}/>
                 </div>
             })} */}
-             </div>
-             </div>
-    
-             </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   )
 }

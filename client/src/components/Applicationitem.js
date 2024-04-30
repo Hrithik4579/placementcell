@@ -1,9 +1,11 @@
 import React,{useEffect,useState} from 'react'
-import {Link,useParams} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Snavbar from './Snavbar';
+
 export default function Applicationitem(props) {
     // const { companyId } = useParams();
   const [company, setCompany] = useState({});
+
   useEffect(() => {
     const fetchCompany = async () => {
       try {
@@ -27,8 +29,10 @@ export default function Applicationitem(props) {
         console.log("error fetching company", error);
       }
     };
+    
     fetchCompany();
   }, [props.job]);
+
   return (
     <div>
         <Snavbar/>

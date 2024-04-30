@@ -6,7 +6,9 @@ import "./Companyinfo.css";
 export default function Companyinfo(props) {
   const { companyId } = useParams();
   const [company, setCompany] = useState({});
+
   useEffect(() => {
+
     const fetchCompany = async () => {
       try {
         const response = await fetch(
@@ -31,47 +33,49 @@ export default function Companyinfo(props) {
     };
     fetchCompany();
   }, [companyId]);
+
   const formatRegister = (dateString) => {
     return new Date(dateString).toLocaleDateString();
   };
+
   return (
     <div className="comp_info">
       <Anavbar />
       <div className="container-fluid hello">
-      <h1 className="text-center">
-        <b>
-          Company Details
-        </b>
-      </h1>
+        <h1 className="text-center">
+          <b>
+            Company Details
+          </b>
+        </h1>
 
-      {Object.keys(company).length > 0 ? (
-        <div className="mt-5">
-          <span className="cname">Company name: {company.companyName}</span>
-          <hr />
-          <span className="display-8">Batch: {company.batch}</span>
-          <hr />
-          <span className="display-8">CGPA: {company.cgpa} </span>
-          <hr />
-          <span className="display-8">Branch: {company.branches}</span>
-          <hr />
-          <span className="display-8">
-            Place of posting: {company.location}
-          </span>
-          <hr />
-          <span className="display-8">Role: {company.role}</span>
-          <hr />
-          <span className="display-8">Stipend: {company.salary}</span>
-          <hr />
-          <span className="display-8">Category: {company.type}</span>
-          <hr />
-          <span className="display-8">
-            Registration last date: {formatRegister(company.registerBy)}
-          </span>
-          <hr />
-        </div>
-      ) : (
-        <p>loading...</p>
-      )}
+        {Object.keys(company).length > 0 ? (
+          <div className="mt-5">
+            <span className="cname">Company name: {company.companyName}</span>
+            <hr />
+            <span className="display-8">Batch: {company.batch}</span>
+            <hr />
+            <span className="display-8">CGPA: {company.cgpa} </span>
+            <hr />
+            <span className="display-8">Branch: {company.branches}</span>
+            <hr />
+            <span className="display-8">
+              Place of posting: {company.location}
+            </span>
+            <hr />
+            <span className="display-8">Role: {company.role}</span>
+            <hr />
+            <span className="display-8">Stipend: {company.salary}</span>
+            <hr />
+            <span className="display-8">Category: {company.type}</span>
+            <hr />
+            <span className="display-8">
+              Registration last date: {formatRegister(company.registerBy)}
+            </span>
+            <hr />
+          </div>
+        ) : (
+          <p>loading...</p>
+        )}
       </div>
     </div>
   );

@@ -43,7 +43,7 @@ const SLogin = (props) => {
   const handleChange = (e) => {
     e.preventDefault();
     // setCredentials({ ...credentials, [e.target.name]: e.target.value })
-    if (e.target.name == "enroll") {
+    if (e.target.name === "enroll") {
       setEnrol(parseInt(e.target.value));
     }
     else {
@@ -96,7 +96,7 @@ const SLogin = (props) => {
           </div>
         </form>
       </div>
-      
+
     </div>
   );
 };
