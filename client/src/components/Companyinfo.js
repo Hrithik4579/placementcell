@@ -35,7 +35,7 @@ export default function Companyinfo(props) {
     return new Date(dateString).toLocaleDateString();
   };
   return (
-    <div>
+    <div className="comp_info">
       <Anavbar />
       <div className="container-fluid hello">
       <h1 className="text-center">

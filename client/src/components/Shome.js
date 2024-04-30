@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Companyitem from './Companyitem'
 import Applyitem from  './Applyitem'
 import Snavbar from './Snavbar';
+import './login.css'
 export default function Shome() {
   const [articles, setArticles] = useState([]);
 
@@ -33,7 +34,7 @@ export default function Shome() {
   }, []);
   
   return (
-    <div>
+    <div className='main123'>
         <Snavbar/>
       <div className='mt-4'>
       <div className="container">

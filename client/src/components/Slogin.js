@@ -53,7 +53,7 @@ const SLogin = (props) => {
   }
 
   return (
-    <div className="main">
+    <div className="main789">
       {/* <header>JIIT Placement Portal</header> */}
       <div className="container container1">
         <h2 className="my-3 fs-4">Student Login</h2>
@@ -92,7 +92,7 @@ const SLogin = (props) => {
             Sign in
           </button>
           <div className="text-center">
-            <Link to="/" className="link text-muted">Sign in as Admin?</Link><br /><br />
+            <Link to="/login" className="link text-muted">Sign in as Admin?</Link><br /><br />
           </div>
         </form>
       </div>

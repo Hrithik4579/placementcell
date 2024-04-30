@@ -1,4 +1,4 @@
-.comp_info{
+.apply_info{
     /* padding-top: 60px;
     padding-left: 50px;
     height: 100vh;
@@ -14,7 +14,7 @@ body{
     margin-top: 80px;
 }
 
-.hello{
+.apply_content{
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(10px); 
     border-radius: 10px; 
@@ -24,7 +24,7 @@ body{
     color: white;
 }
 
-.display-8,.cname{
+.display-7,.cname{
     font-size: large;
     text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
 }
