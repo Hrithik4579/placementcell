@@ -13,6 +13,7 @@ import Addblog from './components/Addblog';
 import Viewblogs from './components/Viewblogs';
 import Applicationstatus from './components/Applicationstatus';
 import Applicationinfo from './components/Applicationinfo';
+import Bloginfo from './components/Bloginfo';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
               <Route path="/company/:companyId" element={<Companyinfo/>}/>
               <Route exact path="/shome" element={<Shome/>}/>
               <Route path="/apply/:companyId" element={<Applyinfo/>}/>
+              <Route path="/blog/:blogId" element={<Bloginfo/>}/>
               <Route exact path="/status" element={<Applystatus/>}/>
               <Route exact path="/ablog" element={<Addblog/>}/>
               <Route exact path= "/vblog" element={<Viewblogs/>}/>
