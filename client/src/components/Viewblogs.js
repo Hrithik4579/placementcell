@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Blogitem from './Blogitem';
 import Anavbar from './Anavbar';
 
 export default function Viewblogs() {
@@ -17,8 +18,8 @@ export default function Viewblogs() {
         const json = await response.json();
 
         if (json.success) {
-          console.log(json);
-          setBlogs(json.data);
+          // console.log(json);
+          setBlogs(json.message);
         }
         else {
           console.log("Json response unsuccessful");
@@ -30,18 +31,18 @@ export default function Viewblogs() {
 
     fetchBlogs();
   }, []);
-  
   return (
     <div>
       <Anavbar />
       <div className='mt-4'>
         <div className="container">
           <div className="row">
-            {/* {blogs.map((element)=>{
+            {/* {console.log("Blogs: ", blogs)} */}
+            {blogs.map((element)=>{
                 return <div key={element._id} className="col-md-4">
-                     <Blogitem cname={element.companyName} type={element.type} batch={element.batch} id={element._id}/>
+                     <Blogitem description={element.description} cname={element.companyName} type={element.type} batch={element.batch} id={element._id}/>
                 </div>
-            })} */}
+            })}
           </div>
         </div>
 
