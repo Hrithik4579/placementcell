@@ -44,7 +44,7 @@ const createApplication = asyncHandler(async (req, res) => {
     throw new ApiError(400, "You are not eligible for this job");
   }
 
-  if (!branches.includes(branch)) {
+  if (!branches.some(b => b.toLowerCase() === branch.toLowerCase())) {
     fs.unlinkSync(localFilePath)
     throw new ApiError(400, "Your branch is not eligible for this job");
   }
