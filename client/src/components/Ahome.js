@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Anavbar from './Anavbar'
 import Companyitem from './Companyitem'
+import './login.css'
 export default function Ahome() {
   const [articles, setArticles] = useState([]);
 
@@ -37,14 +38,14 @@ export default function Ahome() {
   };
 
   return (
-    <div>
+    <div className='main123'>
       <Anavbar />
       <div className='mt-4'>
         <div className="container">
           <div className="row">
             {articles.map((element) => {
               return <div key={element._id} className="col-md-4">
-                <Companyitem onArticleDeleted={handleArticleDeleted} logoUrl={element.logo} cname={element.companyName} post={element.location} ctc={element.salary} id={element._id} />
+                <Companyitem onArticleDeleted={handleArticleDeleted} logoUrl={element.logo} cname={element.companyName} post={element.location} ctc={element.salary} id={element._id}  role={element.role} />
               </div>
             })}
           </div>

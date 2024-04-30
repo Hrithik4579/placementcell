@@ -13,7 +13,7 @@ import Addblog from './components/Addblog';
 import Viewblogs from './components/Viewblogs';
 import Applicationstatus from './components/Applicationstatus';
 import Applicationinfo from './components/Applicationinfo';
-
+import Home from './components/Home';
 function App() {
   return (
     <>
@@ -21,7 +21,8 @@ function App() {
       <Router>
           <div>
             <Routes>
-              <Route exact path="/" element={<Login/>} />
+              <Route exact path="/" element={<Home/>} />
+              <Route exact path="/login" element={<Login/>}/>
               <Route exact path="/slogin" element={<Slogin/>} />
               <Route exact path="/home" element={<Ahome/>}/>
               <Route exact path="/addstudent" element={<Addstudent/>}/>

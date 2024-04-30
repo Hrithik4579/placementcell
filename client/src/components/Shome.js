@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Applyitem from './Applyitem'
 import Snavbar from './Snavbar';
+import './login.css'
 export default function Shome() {
   const [articles, setArticles] = useState([]);
 
@@ -32,14 +33,14 @@ export default function Shome() {
   }, []);
 
   return (
-    <div>
-      <Snavbar />
+    <div className='main123'>
+        <Snavbar/>
       <div className='mt-4'>
         <div className="container">
           <div className="row">
             {articles.map((element) => {
               return <div key={element._id} className="col-md-4">
-                <Applyitem articles={articles} cname={element.companyName} post={element.location} ctc={element.salary} id={element._id} />
+                <Applyitem articles={articles} cname={element.companyName} post={element.location} ctc={element.salary} id={element._id} role={element.role} />
               </div>
             })}
           </div>
