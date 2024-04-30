@@ -93,7 +93,7 @@ export default function Snavbar() {
               </li>
               <li className="nav-item ms-lg-0 {`nav-item ${location.pathname === '/home' ? 'active' : ''}`}">
                 <Link className="nav-link" to="/applications">
-                  application Status
+                  Application Status
                 </Link>
               </li>
               <li className="nav-item ms-lg-0">
