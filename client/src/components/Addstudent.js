@@ -47,7 +47,7 @@ export default function Addstudent() {
   };
 
   return (
-    <div>
+    <div className="addstud">
       <Anavbar />
       <div className="container-fluid" >
         <div className="row justify-content-center ">

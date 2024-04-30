@@ -39,7 +39,7 @@ export default function Companyinfo(props) {
   };
 
   return (
-    <div>
+    <div className="comp_info">
       <Anavbar />
       <div className="container-fluid hello">
         <h1 className="text-center">

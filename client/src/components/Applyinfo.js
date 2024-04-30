@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Snavbar from './Snavbar';
-
+import './Applyinfo.css';
 export default function Applyinfo(props) {
   const { companyId } = useParams();
   const [company, setCompany] = useState({});
@@ -69,13 +69,14 @@ export default function Applyinfo(props) {
   }
 
   return (
-    <div>
+    <div className='apply_info'>
       <Snavbar />
+      <div className='container-fluid apply_content'>
       <h1 className='text-center'><b><u>Company Details</u></b></h1>
 
       {Object.keys(company).length > 0 ? (
         <div className='mt-5'>
-          <span>Company name: {company.companyName}</span>
+          <span className='cname'>Company name: {company.companyName}</span>
           <hr />
           <span className='display-7'>Batch: {company.batch}</span><hr />
           <span className='display-7'>CGPA: {company.cgpa} </span><hr />
@@ -89,6 +90,7 @@ export default function Applyinfo(props) {
         </div>
       ) : (<p>loading...</p>
       )}
+    </div>
     </div>
   )
 }

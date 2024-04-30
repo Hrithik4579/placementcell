@@ -1,45 +1,52 @@
-/* body{
-    background-image: url("1.jpg");
-    height: 50px;
-} */
 .bg-img {
     /* The image used */
-  
+    background-image: url("1.jpg");
+    height: 600px;
     min-height: 380px;
   
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  
     /* Needed to position the navbar */
     position: relative;
+    margin: -82px;
   }
   
   /* Position the navbar container inside the image */
-  .container12 {
+  #imagebg {
     position: absolute;
-    margin: -51px 461px;
+    margin: 20px;
     width: auto;
   }
-  
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+  }
   /* The navbar */
   .topnav {
+    filter: none !important;
     overflow: hidden;
     background-color: transparent;
+    margin-left: 380px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bold;
+    font-weight: bolder;
+    font-size: 50px;
   }
   
   /* Navbar links */
   .topnav a {
-
-    float: center;
+    filter: none !important;
+    float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 40px;
     text-decoration: none;
-    font-size: 34px;
+    font-size: 17px;
   }
   
   .topnav a:hover {

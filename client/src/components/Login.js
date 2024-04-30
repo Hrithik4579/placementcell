@@ -44,7 +44,7 @@ const Login = () => {
   }
 
   return (
-    <div className="main">
+    <div className="main456">
       {/* <header>JIIT Placement Portal</header> */}
       {/* <div className="container1 container-fluid">  */}
       <div className="container1"> 

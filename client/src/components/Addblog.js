@@ -40,7 +40,7 @@ export default function Addblog() {
     }
   };
   return (
-    <div>
+    <div className='addblog'>
       <Anavbar />
       <div className="container-fluid">
         <div className="row justify-content-center">

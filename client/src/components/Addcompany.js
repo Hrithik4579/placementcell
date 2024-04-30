@@ -32,7 +32,7 @@ export default function Addcompany() {
   };
 
   return (
-    <div>
+    <div className="addcomp">
       <Anavbar />
 
       <div className="container-fluid">
