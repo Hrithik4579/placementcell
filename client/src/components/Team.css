@@ -1,0 +1,21 @@
+.card{
+    width: 18rem;
+    display: inline-block;
+    margin-right: 10%;
+    margin-top: 6%;
+    margin-left: 18%;
+    box-shadow: 0 0 3px rgb(53 64 78 / 60%)
+
+
+}
+#our{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 80px;
+}
+#third3{
+    margin-left: 42%;
+}
+.card-img-top{
+    height: 25rem;
+    border-radius: 50%;
+}

@@ -13,7 +13,7 @@ export default function Navbar() {
       <Link to="#news">About</Link>
       <Link to="#contact">Archive</Link>
       <Link to="/login">T&P Portal</Link>
-      <Link to='/'>Our Team</Link>
+      <Link to='/team'>Our Team</Link>
       <Link to='/'>Contact us</Link>
     </div>
   </div>

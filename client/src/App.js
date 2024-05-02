@@ -15,6 +15,7 @@ import Applicationstatus from './components/Applicationstatus';
 import Applicationinfo from './components/Applicationinfo';
 import Bloginfo from './components/Bloginfo';
 import Home from './components/Home';
+import Team from './components/Team';
 function App() {
   return (
     <>
@@ -38,6 +39,7 @@ function App() {
               <Route exact path="/applications" element={<Applicationstatus/>}/>
               <Route path="/applications/:companyId" element={<Applicationinfo/>}/>
               <Route exact path="/logout" element={<Login/>}/>
+              <Route exact path="/team" element={<Team/>}/>
             </Routes>
           </div>
         </Router>
