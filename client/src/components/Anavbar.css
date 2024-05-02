@@ -5,6 +5,7 @@
   background-size: contain; 
   background-repeat: no-repeat;
   background-position: center; 
+
 }
 
 .bebas-neue-regular {
@@ -16,14 +17,7 @@
   text-shadow: 0 0 2px white; 
 }
 
-.black-ops-one-regular {
-  font-family: "Black Ops One", system-ui;
-  font-weight: 600;
-  font-style: normal;
-  font-size: 27px;
-  letter-spacing: 2px;
-  text-shadow: 0 0 2px white; 
-}
+
 
 .navbar{
     margin: 10px 10px 10px 10px;

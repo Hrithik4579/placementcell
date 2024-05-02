@@ -37,9 +37,9 @@ export default function Applicationitem(props) {
     <div>
         <Snavbar/>
         {/* {Object.keys(company).length > 0 ? ( */}
-      <div className="card">
+      <div className="card mt-5 application-card">
   {/* <h5 className="card-header">{company.companyName}</h5> */}
-  <div className="card-body">
+  <div className="card-body ">
     <h5 className="card-title">{company.companyName}</h5>
     <p className="card-text">{props.status}</p>
     <Link to={`/applications/${props.job}`} className="btn btn-primary">View More</Link>

@@ -1,55 +1,50 @@
-.bg-img {
-    /* The image used */
-    background-image: url("1.jpg");
-    height: 600px;
-    min-height: 380px;
-  
-    /* Center and scale the image nicely */
-    background-position: center;
+  .jiitlogo {
+    width: 50px;
+    height: 50px;
+    background-image: url("../../jaypee_logo.png");
+    background-size: contain; 
     background-repeat: no-repeat;
-    background-size: cover;
-    /* Needed to position the navbar */
-    position: relative;
-    margin: -82px;
+    background-position: center; 
   }
   
-  /* Position the navbar container inside the image */
-  #imagebg {
-    position: absolute;
-    margin: 20px;
-    width: auto;
-  }
-  .centered {
-    position: absolute;
-    top: 50%;
-    left: 15%;
-    transform: translate(-50%, -50%);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: xx-large;
-  }
-  /* The navbar */
-  .topnav {
-    filter: none !important;
-    overflow: hidden;
-    background-color: transparent;
-    margin-left: 380px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bolder;
-    font-size: 50px;
+  .bebas-neue-regular {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 27px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 2px white; 
   }
   
-  /* Navbar links */
-  .topnav a {
-    filter: none !important;
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 40px;
-    text-decoration: none;
-    font-size: 17px;
+  
+  
+  .navbar{
+      margin: 15px 15px 15px 15px;
+      border-radius: 50px;
+      height: 60px;
+     
   }
   
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+  .nav-link:hover{
+      background-color: white;
+      color: black;
+      border-radius: 5px;
+      text-shadow: 0 0 .5px black; 
   }
+  .btn1{
+    border-radius: 50px !important;
+    
+  }
+
+  .navbar-nav .nav-item {
+    margin-right: 5px; 
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
