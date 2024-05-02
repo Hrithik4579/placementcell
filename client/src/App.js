@@ -17,8 +17,12 @@ import Bloginfo from './components/Bloginfo';
 import Home from './components/Home';
 import AViewBlogs from './components/AViewBlogs.js';
 import ABloginfo from './components/ABloginfo.js';
-
+import Labout from './components/Labout.js';
 import Team from './components/Team';
+import About from './components/About.js';
+import Sabout from './components/Sabout.js';
+import Contact from './components/Contact.js';
+import Scontact from './components/Scontact.js';
 function App() {
   return (
     <>
@@ -45,6 +49,11 @@ function App() {
               <Route path="/applications/:companyId" element={<Applicationinfo/>}/>
               <Route exact path="/logout" element={<Login/>}/>
               <Route exact path="/team" element={<Team/>}/>
+              <Route exact path='/about' element={<About/>}/>
+              <Route exact path='/sabout' element={<Sabout/>}/>
+              <Route exact path='/labout' element={<Labout/>}/>
+              <Route exact path='/contact' element={<Contact/>}/>
+              <Route exact path='/scontact' element={<Scontact/>}/>
             </Routes>
           </div>
         </Router>

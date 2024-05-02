@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './login.css';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
 // import {useNavigate} from "react-router-dom";
 const SLogin = (props) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -54,6 +55,7 @@ const SLogin = (props) => {
 
   return (
     <div className="main789">
+      <Navbar/>
       {/* <header>JIIT Placement Portal</header> */}
       <div className="container container1">
         <h2 className="my-3 fs-4">Student Login</h2>
