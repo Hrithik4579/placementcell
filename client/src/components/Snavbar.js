@@ -87,7 +87,7 @@ export default function Snavbar() {
                 </Link>
               </li>
               <li className="nav-item ms-lg-0 {`nav-item ${location.pathname === '/home' ? 'active' : ''}`}">
-                <Link className="nav-link" to="/about">
+                <Link className="nav-link" to="/sabout">
                   About
                 </Link>
               </li>
@@ -102,8 +102,8 @@ export default function Snavbar() {
                 </Link>
               </li>
               <li className="nav-item ms-lg-0">
-                <Link className="nav-link {`nav-item ${location.pathname === '/home' ? 'active' : ''}`}" to="/shome">
-                  Feedback
+                <Link className="nav-link {`nav-item ${location.pathname === '/home' ? 'active' : ''}`}" to="/scontact">
+                  Contact us
                 </Link>
               </li>
               <li className="nav-item" id="logout"><Link className="nav-link" to="/logout"><button onClick={handleClick} type="button" className="btn btn-outline-info">Logout</button></Link></li>

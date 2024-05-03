@@ -3,6 +3,7 @@ import './login.css';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
 const Login = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   let navigate = useNavigate();
@@ -45,6 +46,8 @@ const Login = () => {
 
   return (
     <div className="main456">
+
+      <Navbar/>
       {/* <header>JIIT Placement Portal</header> */}
       {/* <div className="container1 container-fluid">  */}
       <div className="container1"> 

@@ -65,7 +65,7 @@ export default function Anavbar() {
                   location.pathname === "/about" ? "active" : ""
                 }`}
               >
-                <Link className="nav-link" to="/about">
+                <Link className="nav-link" to="/labout">
                   About
                 </Link>
               </li>
