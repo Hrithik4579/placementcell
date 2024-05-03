@@ -1,6 +1,7 @@
 import React from 'react'
 import './Team.css'
 import Navbar from './Navbar'
+import Footer from './footer'
 export default function Team() {
   return (
     <div>
@@ -76,6 +77,8 @@ export default function Team() {
     </div>
   </div>
 </div>
+<footer><Footer /></footer>
+
    </div>
   )
 }

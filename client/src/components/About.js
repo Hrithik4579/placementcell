@@ -2,6 +2,7 @@ import React from 'react'
 import './About.css'
 import { Link } from 'react-router-dom'
 import Navbar from './Navbar'
+import Footer from './footer'
 export default function About() {
   return (
     <div>
@@ -39,6 +40,8 @@ export default function About() {
     </div>
   </div>
 </div>
+<footer><Footer /></footer>
+
     </div>
   )
 }
