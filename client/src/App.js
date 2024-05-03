@@ -17,6 +17,8 @@ import Bloginfo from './components/Bloginfo';
 import Home from './components/Home';
 import AViewBlogs from './components/AViewBlogs.js';
 import ABloginfo from './components/ABloginfo.js';
+// import Footer from './components/footer.js';
+
 
 function App() {
   return (
@@ -46,6 +48,8 @@ function App() {
             </Routes>
           </div>
         </Router>
+        {/* <footer><Footer /></footer> */}
+
     </div>
     </>
   );
