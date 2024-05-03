@@ -12,7 +12,7 @@ export default function Navbar() {
             <div className="jiitlogo">
               <i className="bx bxl-mailchimp"></i>
             </div>
-            <Link className="navbar-brand bebas-neue-regular" to="/home">
+            <Link className="navbar-brand bebas-neue-regular" to="/">
               JIIT T&P
             </Link>
             <button
@@ -34,7 +34,7 @@ export default function Navbar() {
                 <li
                   className={`nav-item`}
                 >
-                  <Link className="nav-link" aria-current="page" to="/home">
+                  <Link className="nav-link" aria-current="page" to="/">
                     Home
                   </Link>
                 </li>
@@ -62,14 +62,14 @@ export default function Navbar() {
                 <li
                   className={`nav-item `}
                 >
-                  <Link className="nav-link" to="/">
-                    Our Team
+                  <Link className="nav-link" to="/team">
+                    Team
                   </Link>
                 </li>
                 <li
                   className={`nav-item`}
                 >
-                  <Link className="nav-link" to="/">
+                  <Link className="nav-link" to="/contact">
                     Contact Us
                   </Link>
                 </li>

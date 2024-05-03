@@ -111,6 +111,7 @@ h2{
     backdrop-filter: blur(10px); 
     border-radius: 10px; 
     margin: auto;
+    margin-top: 78px;
     max-width: 20vw;
     color: white;
 }
