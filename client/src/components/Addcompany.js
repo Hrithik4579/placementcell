@@ -130,6 +130,16 @@ export default function Addcompany() {
                     />
                   </div>
                   <div className="mb-2">
+                    <label htmlFor="testDate" className="form-label">
+                      Test Date:
+                    </label>
+                    <input
+                      name="testDate"
+                      type="date"
+                      className="form-control"
+                    />
+                  </div>
+                  <div className="mb-2">
                     <label htmlFor="logo" className="form-label">
                       Company Logo:
                     </label>
