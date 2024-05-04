@@ -14,12 +14,12 @@ export default function Home() {
       </div>
 
       <div className="landing-mainpage">
-        <div class="placement-container">
-          <div class="placement-content">
-            <h6 class="tag">
+        <div className="placement-container">
+          <div className="placement-content">
+            <h6 className="tag">
               Unlock Your Potential: Navigate Your Career with
             </h6>
-            <h1 class="title big">
+            <h1 className="title big">
               <em>JIIT</em> PLACEMENT PORTAL
             </h1>
             <p>– Where Placement is Made Simple!</p>
@@ -27,22 +27,22 @@ export default function Home() {
               Get hired
             </Link>
           </div>
-          <div class="placement-image">
+          <div className="placement-image">
             <div className="jiitmainimg"></div>
           </div>
         </div>
       </div>
 
       <section>
-        <div class="division_1 padding_1x">
-          <section class="title_header t_center">
-            <h1 class="title medium">
+        <div className="division_1 padding_1x">
+          <section className="title_header t_center">
+            <h1 className="title medium">
               <em>Hiring</em> made easy
             </h1>
           </section>
-          <ul class="flex padding_2x">
-            <li class="padding_1x">
-              <h3 class="title small">
+          <ul className="flex padding_2x">
+            <li className="padding_1x">
+              <h3 className="title small">
                 STEP 1:{" "}
                 <h5>
                   <em>REGISTER ACCOUNT</em>
@@ -50,8 +50,8 @@ export default function Home() {
               </h3>
               <p>First the admin will make students' account.</p>
             </li>
-            <li class=" padding_1x">
-              <h3 class="title small">
+            <li className=" padding_1x">
+              <h3 className="title small">
                 STEP 2:{" "}
                 <h5>
                   <em>FIND A JOB</em>
@@ -59,8 +59,8 @@ export default function Home() {
               </h3>
               <p>Search for the job you want.</p>
             </li>
-            <li class="padding_1x">
-              <h3 class="title small">
+            <li className="padding_1x">
+              <h3 className="title small">
                 STEP 3:{" "}
                 <h5>
                   <em>APPLY FOR JOB</em>
@@ -74,7 +74,7 @@ export default function Home() {
 
       <section id="recruiters">
         <div className="container text-center">
-          <h1 class="title medium">
+          <h1 className="title medium">
             <em>TOP</em> RECRUITERS
           </h1>
           <div>
@@ -159,31 +159,31 @@ export default function Home() {
       </section>
       {/* <footer></footer> */}
 
-      <div class="division_2 padding_1x">
-        <section class="title_header t_center">
-          <h1 class="title medium">
+      <div className="division_2 padding_1x">
+        <section className="title_header t_center">
+          <h1 className="title medium">
             We can find <em>everyone</em>, regardless of the <em>technology</em>
           </h1>
         </section>
-        <section class="content flex mb-5">
-          <ul class="flex_content padding_2x">
-            <li class="fixed_flex small padding_2x">Front-end and mobile</li>
-            <li class="fixed_flex small padding_2x">Back-end development</li>
-            <li class="fixed_flex small padding_2x">DevOps and cloud</li>
+        <section className="content flex mb-5">
+          <ul className="flex_content padding_2x">
+            <li className="fixed_flex small padding_2x">Front-end and mobile</li>
+            <li className="fixed_flex small padding_2x">Back-end development</li>
+            <li className="fixed_flex small padding_2x">DevOps and cloud</li>
           </ul>
-          <figure class="flex_content">
+          <figure className="flex_content">
             <img
               src="https://raw.githubusercontent.com/bharadwajyl/joblisting/main/assets/images/division_1.png"
               alt=""
               loading="lazy"
             />
           </figure>
-          <ul class="flex_content padding_2x">
-            <li class="fixed_flex small padding_2x">
+          <ul className="flex_content padding_2x">
+            <li className="fixed_flex small padding_2x">
               Data science & engineering
             </li>
-            <li class="fixed_flex small padding_2x">Blockchain, web 3.0</li>
-            <li class="fixed_flex small padding_2x">UI/UX Designers</li>
+            <li className="fixed_flex small padding_2x">Blockchain, web 3.0</li>
+            <li className="fixed_flex small padding_2x">UI/UX Designers</li>
           </ul>
         </section>
       </div>

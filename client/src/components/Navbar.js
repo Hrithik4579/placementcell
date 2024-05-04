@@ -95,7 +95,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-      <div class="centered">
+      <div className="centered">
         <h1>JIIT Placment Portal</h1>
       </div> */}
     </div>

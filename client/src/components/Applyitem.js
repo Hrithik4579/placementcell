@@ -25,8 +25,8 @@ export default function Applyitem(props) {
 
 
       <div className="company_card">
-        <div class="card p-3 mb-2">
-          <div class="d-flex justify-content-between">
+        <div className="card p-3 mb-2">
+          <div className="d-flex justify-content-between">
             <div className="d-flex flex-row align-items-center">
               <img className="icon" src={props.logoUrl} alt="Cloudinary" />
               <div className="ms-2 c-details">
@@ -37,11 +37,11 @@ export default function Applyitem(props) {
               <span>{props.role}</span>
             </div>
           </div>
-          <div class="mt-4 mb-4">
-            <div class="d-flex align-items-center">
-              <div class="icon2">
+          <div className="mt-4 mb-4">
+            <div className="d-flex align-items-center">
+              <div className="icon2">
                 {" "}
-                <i class="bx bxl-mailchimp"></i>{" "}
+                <i className="bx bxl-mailchimp"></i>{" "}
               </div>
 
               <span className="text-muted d-block fs-5">
@@ -50,10 +50,10 @@ export default function Applyitem(props) {
               </span>
             </div>
 
-            <div class="d-flex align-items-center">
-              <div class="icon3">
+            <div className="d-flex align-items-center">
+              <div className="icon3">
                 {" "}
-                <i class="bx bxl-mailchimp"></i>{" "}
+                <i className="bx bxl-mailchimp"></i>{" "}
               </div>
 
               <span className="text-muted d-block fs-5">

@@ -58,7 +58,7 @@ export default function Snavbar() {
 
 <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark ">
         <div className="container-fluid">
-          <div class="jiitlogo">
+          <div className="jiitlogo">
             <i className="bx bxl-mailchimp"></i>
           </div>
           <Link className="navbar-brand bebas-neue-regular " to="/home">

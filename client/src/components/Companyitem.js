@@ -61,11 +61,11 @@ export default function Companyitem(props) {
     //         <span>{props.role}</span>
     //       </div>
     //     </div>
-    //     <div class="mt-4 mb-4">
-    //       <div class="d-flex align-items-center">
-    //         <div class="icon2">
+    //     <div className="mt-4 mb-4">
+    //       <div className="d-flex align-items-center">
+    //         <div className="icon2">
     //           {" "}
-    //           <i class="bx bxl-mailchimp"></i>{" "}
+    //           <i className="bx bxl-mailchimp"></i>{" "}
     //         </div>
 
     //         <span className="text-muted d-block fs-5">
@@ -74,10 +74,10 @@ export default function Companyitem(props) {
     //         </span>
     //       </div>
 
-    //       <div class="d-flex align-items-center">
-    //         <div class="icon3">
+    //       <div className="d-flex align-items-center">
+    //         <div className="icon3">
     //           {" "}
-    //           <i class="bx bxl-mailchimp"></i>{" "}
+    //           <i className="bx bxl-mailchimp"></i>{" "}
     //         </div>
 
     //         <span className="text-muted d-block fs-5">
