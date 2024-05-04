@@ -85,6 +85,7 @@ export default function Applyinfo(props) {
           <span className='display-7'>Stipend: {company.salary}</span><hr />
           <span className='display-7'>Category: {company.type}</span><hr />
           <span className='display-7'>Registration last date: {formatRegister(company.registerBy)}</span><hr />
+          <span className='display-7'>Test: {formatRegister(company.testDate)}</span><hr />
           <input type="file" className="form-control mb-5" id="inputGroupFile02" required accept='.docx, .doc, .pdf'/>
           <button className='btn btn-dark' id="apply_button" onClick={(e) => handleClick(e, company._id)}>Apply</button>
         </div>

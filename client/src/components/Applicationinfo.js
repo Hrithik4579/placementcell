@@ -70,6 +70,10 @@ export default function Applicationinfo() {
               Registration last date: {formatRegister(company.registerBy)}
             </span>
             <hr />
+            <span className="display-8">
+              Test date: {formatRegister(company.testDate)}
+            </span>
+            <hr />
           </div>
         ) : (
           <p>loading...</p>
