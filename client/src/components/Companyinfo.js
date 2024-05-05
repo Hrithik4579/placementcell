@@ -73,7 +73,7 @@ export default function Companyinfo(props) {
             </span>
             <hr />
             <span className="display-8">
-              Test data: {formatRegister(company.testDate)}
+              Test date: {formatRegister(company.testDate)}
             </span>
           </div>
         ) : (
