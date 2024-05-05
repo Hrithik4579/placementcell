@@ -20,6 +20,7 @@ const createJob = asyncHandler(async (req, res) => {
             role,
             branches,
             registerBy,
+            testDate
         } = req.body
 
         // console.log(req.body);
@@ -61,7 +62,8 @@ const createJob = asyncHandler(async (req, res) => {
             role,
             branches,
             registerBy,
-            logo: logoUrl
+            logo: logoUrl,
+            testDate
         })
 
         if (!job) {
