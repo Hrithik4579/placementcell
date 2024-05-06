@@ -15,8 +15,7 @@ export default function Contact() {
         <div data-wkik-type="container-block" className="container-block form-wrapper">
           <p className="text-blk contactus-head">Get in Touch
           </p>
-          <p className="text-blk contactus-subhead">Nunc erat cursus tellus gravida.
-          </p>
+    
           <div data-wkik-type="responsive-container-block" className="responsive-container-block">
             <div data-wkik-type="responsive-cell-block" desktopcolspan="6" ipadprocolspan="6" tabletcolspan="12" mobilecolspan="12" id="i10mt" className="responsive-cell-block wk-ipadp-6 wk-tab-12 wk-mobile-12 wk-desk-6">
               <p className="text-blk input-title">FIRST NAME
