@@ -51,7 +51,7 @@ export default function AViewBlogs() {
   return (
     <div>
       <Anavbar />
-      <div className='mt-4'>
+      <div className='mt-5'>
         <div className="container">
         <div className="row">
             <div className="col-md-6 offset-md-3">
