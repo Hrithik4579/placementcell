@@ -9,19 +9,7 @@ export default function Applyitem(props) {
   return (
     <div>
       <Snavbar />
-      {/* <div className='company_card'>
-      <div className="card">
-        <div className="card-header">
-          {props.post}
-        </div>
-        <div className="card-body">
-          <h5 className="card-title">{props.cname}</h5>
-          <p className="card-text">{props.ctc}</p>
-          <Link to={`/apply/${props.id}`} className="btn btn-primary">view opportunity</Link>
-
-        </div>
-      </div>
-    </div> */}
+      
 
 
       <div className="company_card">
@@ -45,7 +33,7 @@ export default function Applyitem(props) {
               </div>
 
               <span className="text-muted d-block fs-5">
-                <i className="fa fa-map-marker" aria-hidden="true"></i>{" "}
+                {/* <i className="fa fa-map-marker" aria-hidden="true"></i>{" "} */}
                 {props.post}
               </span>
             </div>
@@ -57,7 +45,7 @@ export default function Applyitem(props) {
               </div>
 
               <span className="text-muted d-block fs-5">
-                <i className="fa fa-map-marker" aria-hidden="true"></i>{" "}
+                {/* <i className="fa fa-map-marker" aria-hidden="true"></i>{" "} */}
                 {props.ctc}
               </span>
             </div>
